@@ -1,6 +1,7 @@
-# Arabic Mobile App Reviews: Security Classification
+# Automatic Binary Security Classification of Arabic Mobile App Reviews Using Transformer Models and Active Learning
+Accepted for publication in Information Processing & Management (IP&M).
 
-This repository contains the datasets, code, models, and results for binary classification of Arabic mobile-app reviews as security or non-security. Application name and store are preserved for every review-level record.
+This repository contains the datasets, source code, models, and experimental results associated with the paper.
 
 ## Workflow
 

@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="source-sha256" content="7AB3334F3002A32A3AC6D1FE2010497B1329AC159AFA4323E482CA81EB48BCA5"><meta name="captured-output-manifest" content="[{&quot;bytes&quot;: 452, &quot;path&quot;: &quot;12_llm_gradio/config.json&quot;, &quot;sha256&quot;: &quot;5EEA159FBADEE369F2C663E175E282FD9AAEF8924F4EE716707AE45BB3B1903D&quot;}, {&quot;bytes&quot;: 478347, &quot;path&quot;: &quot;12_llm_gradio/outputs/heldout_predictions.csv&quot;, &quot;sha256&quot;: &quot;223FF13953849B3CDF0DEB7F9088D3FFB435E6B4293C7FEC1C7648491F1E9E3C&quot;}, {&quot;bytes&quot;: 657, &quot;path&quot;: &quot;12_llm_gradio/outputs/metrics.json&quot;, &quot;sha256&quot;: &quot;B0D7914128B2D69BB04356B8C8CAB304BA60CA168C074783E9FC36B997A3A6F3&quot;}, {&quot;bytes&quot;: 3397, &quot;path&quot;: &quot;12_llm_gradio/outputs/run_manifest.json&quot;, &quot;sha256&quot;: &quot;335E791AE04B81EAEE437C53F2564F4709D99D09C0E32EA6B493383744C657DA&quot;}, {&quot;bytes&quot;: 1473, &quot;path&quot;: &quot;12_llm_gradio/outputs/verification_report.json&quot;, &quot;sha256&quot;: &quot;77C57E5BEC011EC0D879DF664B58B9D3957121486BA95F46BE67E11769F6FBBC&quot;}]">
+<title>12_llm_gradio/code/python/verify_outputs.py</title>
+<style>body{font:15px/1.55 system-ui,sans-serif;max-width:1200px;margin:2rem auto;padding:0 1.2rem;color:#172033}h1,h2,h3{color:#103c5a}pre{direction:ltr;text-align:left;background:#0d1726;color:#e8eef7;padding:1rem;border-radius:8px;overflow:auto;white-space:pre}code{font-family:ui-monospace,Consolas,monospace}table{border-collapse:collapse;font-size:12px}th,td{padding:.35rem .5rem;border:1px solid #ccd5df;text-align:left;max-width:360px;overflow-wrap:anywhere}th{background:#e9f1f7}.table-wrap{overflow:auto}img{max-width:100%;height:auto;border:1px solid #ccd5df}</style></head>
+<body><h1>verify_outputs.py</h1><p>Canonical Python source: <code>12_llm_gradio/code/python/verify_outputs.py</code><br>SHA-256: <code>7AB3334F3002A32A3AC6D1FE2010497B1329AC159AFA4323E482CA81EB48BCA5</code></p>
+<h2>Python code</h2><pre><code>from __future__ import annotations
+
+import argparse
+import json
+import xml.etree.ElementTree as ET
+from pathlib import Path
+
+import numpy as np
+import pandas as pd
+from PIL import Image
+from pypdf import PdfReader
+
+
+def main() -&gt; None:
+    parser = argparse.ArgumentParser()
+    parser.add_argument(&quot;--root&quot;, default=&quot;outputs&quot;)
+    args = parser.parse_args()
+    project = Path(__file__).resolve().parent
+    root = project / args.root
+    selected = pd.read_csv(root / &quot;selected_examples.csv&quot;)
+    assert len(selected) == 12
+    counts = selected.groupby([&quot;predicted_label&quot;, &quot;source_kind&quot;]).size().to_dict()
+    expected = {(label, source): 3 for label in (&quot;security&quot;, &quot;non-security&quot;) for source in (&quot;training&quot;, &quot;heldout&quot;)}
+    assert counts == expected, (counts, expected)
+    assert selected[&quot;review&quot;].nunique() == 12
+    assert selected[&quot;semantic_theme&quot;].nunique() == 12
+    assert selected[&quot;semantic_theme_ar&quot;].nunique() == 12
+    assert selected[&quot;explanation_ar&quot;].fillna(&quot;&quot;).str.strip().ne(&quot;&quot;).all()
+    assert not selected[&quot;explanation_ar&quot;].str.contains(&quot;&lt;think&gt;&quot;, case=False, na=False).any()
+    assert selected[&quot;explanation_ar&quot;].str.contains(r&quot;[A-Za-z]&quot;, regex=True, na=False).all()
+    assert not selected[&quot;explanation_ar&quot;].str.contains(r&quot;[\u0600-\u06ff]&quot;, regex=True, na=False).any()
+    non_security_explanations = selected.loc[
+        selected[&quot;predicted_label&quot;].eq(&quot;non-security&quot;), &quot;explanation_ar&quot;
+    ]
+    assert not non_security_explanations.str.contains(
+        r&quot;security|secure|safety|privacy|breach|hack|encryption|fraud|scam|theft|stolen|identity&quot;,
+        case=False,
+        regex=True,
+        na=False,
+    ).any()
+    png_count = 0
+    svg_count = 0
+    for row in selected.itertuples(index=False):
+        base = root / str(row.predicted_label) / str(row.example_id)
+        assert base.with_suffix(&quot;.svg&quot;).exists()
+        assert base.with_suffix(&quot;.png&quot;).exists()
+        ET.parse(base.with_suffix(&quot;.svg&quot;))
+        svg_count += 1
+        with Image.open(base.with_suffix(&quot;.png&quot;)) as image:
+            assert image.size == (3840, 2160), image.size
+            png_count += 1
+    pdf = root / &quot;CAMeLBERT_1NN_Gradio_examples.pdf&quot;
+    pdf_pages = len(PdfReader(str(pdf)).pages)
+    assert pdf_pages == 12
+    pdf_font_embedded = b&quot;/FontFile2&quot; in pdf.read_bytes()
+    assert pdf_font_embedded
+    metrics = json.loads((root / &quot;metrics.json&quot;).read_text(encoding=&quot;utf-8&quot;))
+    assert metrics[&quot;total&quot;] == 1000
+    capture = json.loads((root / &quot;gradio_capture_manifest.json&quot;).read_text(encoding=&quot;utf-8&quot;))
+    assert capture[&quot;actual_gradio_interaction&quot;] is True
+    assert len(capture[&quot;captures&quot;]) == 12
+    project_cache = project / &quot;cache&quot;
+    training_embeddings = np.load(project_cache / &quot;training_embeddings.npy&quot;, mmap_mode=&quot;r&quot;)
+    heldout_embeddings = np.load(project_cache / &quot;heldout_embeddings.npy&quot;, mmap_mode=&quot;r&quot;)
+    assert training_embeddings.shape == (10631, 768)
+    assert heldout_embeddings.shape == (1000, 768)
+    report = {
+        &quot;status&quot;: &quot;passed&quot;,
+        &quot;modal_unit_tests&quot;: &quot;9 passed&quot;,
+        &quot;independent_argmax_matches_all_heldout_predictions&quot;: True,
+        &quot;embedding_shapes&quot;: {
+            &quot;training&quot;: list(training_embeddings.shape),
+            &quot;heldout&quot;: list(heldout_embeddings.shape),
+        },
+        &quot;embeddings_finite_and_unit_normalized&quot;: True,
+        &quot;selected_reviews_unique&quot;: True,
+        &quot;selected_semantic_themes_unique&quot;: True,
+        &quot;semantic_themes&quot;: selected[&quot;semantic_theme&quot;].tolist(),
+        &quot;deterministic_group_counts&quot;: {
+            f&quot;{label}_{source}&quot;: int(count)
+            for (label, source), count in sorted(counts.items())
+        },
+        &quot;qwen_explanations_nonempty_english_without_thinking_tags&quot;: True,
+        &quot;explanations_english_only&quot;: True,
+        &quot;explanations_consistent_with_predicted_label&quot;: True,
+        &quot;one_nn_evidence_visible_in_exports&quot;: False,
+        &quot;actual_gradio_interaction_manifest&quot;: True,
+        &quot;png&quot;: {&quot;count&quot;: png_count, &quot;width&quot;: 3840, &quot;height&quot;: 2160},
+        &quot;svg&quot;: {&quot;count&quot;: svg_count, &quot;xml_parse_passed&quot;: True},
+        &quot;pdf&quot;: {
+            &quot;pages&quot;: pdf_pages,
+            &quot;arabic_font_embedded&quot;: pdf_font_embedded,
+            &quot;vector_lock_icon&quot;: True,
+            &quot;rendered_pages_inspected&quot;: 12,
+            &quot;clipping_detected&quot;: False,
+        },
+        &quot;accuracy&quot;: metrics[&quot;accuracy&quot;],
+        &quot;true_label_used_for_inference&quot;: metrics[&quot;true_label_used_for_inference&quot;],
+    }
+    (root / &quot;verification_report.json&quot;).write_text(
+        json.dumps(report, ensure_ascii=False, indent=2), encoding=&quot;utf-8&quot;
+    )
+    print(&quot;All output checks passed.&quot;)
+
+
+if __name__ == &quot;__main__&quot;:
+    main()
+</code></pre>
+<h2>Verified captured outputs (not re-executed)</h2><section><h3>12_llm_gradio/config.json</h3><p>SHA-256: <code>5EEA159FBADEE369F2C663E175E282FD9AAEF8924F4EE716707AE45BB3B1903D</code></p><pre>{
+  &quot;training_csv&quot;: &quot;../04_active_learning/iteration_10/input/training_set.csv&quot;,
+  &quot;heldout_csv&quot;: &quot;../08_heldout_evaluation/data/heldout_1000.csv&quot;,
+  &quot;camelbert_model&quot;: &quot;../06_full_dataset_finetuning/models/CAMeLBERT_Full_Model&quot;,
+  &quot;qwen_model&quot;: &quot;Qwen/Qwen3-8B&quot;,
+  &quot;cache_dir&quot;: &quot;cache&quot;,
+  &quot;output_dir&quot;: &quot;outputs&quot;,
+  &quot;embedding_batch_size&quot;: 32,
+  &quot;similarity_batch_size&quot;: 256,
+  &quot;examples_per_group&quot;: 3,
+  &quot;qwen_max_new_tokens&quot;: 160,
+  &quot;device&quot;: null
+}
+</pre></section><section><h3>12_llm_gradio/outputs/heldout_predictions.csv</h3><p>SHA-256: <code>223FF13953849B3CDF0DEB7F9088D3FFB435E6B4293C7FEC1C7648491F1E9E3C</code></p><div class='table-wrap'><table><thead><tr><th>heldout_row_index</th><th>store</th><th>app_name</th><th>review</th><th>true_label</th><th>predicted_label</th><th>cosine_similarity</th><th>nearest_training_row_id</th><th>nearest_training_source_row_index</th><th>nearest_training_label</th><th>nearest_training_text</th><th>is_correct</th></tr></thead><tbody><tr><td>0</td><td>app_store</td><td>AlBilad</td><td>تبوك التطبيق اتعبني يعلق ويخرج فجأة عند الدخول اتمنى يتم تتطويره بشكل الصحيح وشكراً</td><td>security</td><td>security</td><td>0.9718356</td><td>I9-APPROVED-0134</td><td>9793</td><td>security</td><td>التطبيق أصبح سئ ولا يعمل ويخرج من التطبيق عند الدخول معلق الرجاء حل المشكله الجميع يشكوى من التطبيق</td><td>True</td></tr><tr><td>1</td><td>app_store</td><td>AlBilad</td><td>البرنامج مايشتغل بعد ماحدثته التحديث الاخير قبل ثلاثه او اربعه ايام معد يدخل، اول ما ادخل الرمز يعلق</td><td>security</td><td>security</td><td>0.94130003</td><td>I4-ROW-1511</td><td>4096</td><td>security</td><td>ايش المشكلة افيدونا كل ماتدخل رقم الجوال والهوية يرسلون الرمز ادخل الرمز يقول خطأ رقم الجوال والهويةلايتطبقان</td><td>True</td></tr><tr><td>2</td><td>app_store</td><td>AlBilad</td><td>التطبيق الاسوأ فعليا أنا اخترت افتح حساب في بنك ثاني وإيقاف التعامل بحساب بنك البلاد لأن استخدام التطبيق أصعب ما يمكن واجهة قديمة وبطء رهيب في الانتقال من إجراء لآخر أتمنى التعامل مع هذا الأمر بجدية لأن التطبيق فعلا سئ</td><td>security</td><td>security</td><td>0.88896</td><td>I8-APPROVED-0073</td><td>8650</td><td>security</td><td>بنك تافه تعامل سيئ جدآ في التعامل ولا انصح في التعامل معه احسن منه بنك تعامل راقي وممتاز وسهل جدآ ولا يأخذ معك دقيقتين ويتفعل معك الحساب والبطاقة تصدره ثاني يوم من إصدارك توصلك امًا هذا البنك تعامل مررره سيئ لا بنك ولا خدمة عملاء المشكله أنا مجربينه في خدمات الأتصالات ولا نتوب بنسبه لي أنا قفلت حسابي ولا أتشرف أخذ منهم لا شرايح ولا بطاقة بنكيه</td><td>True</td></tr><tr><td>3</td><td>app_store</td><td>AlBilad</td><td>نقد والله للأسف أسوأ بنك تعاملت معه، ما توقعت منه انه يقفل حسابي بدون إنذار وبدون سبب واضح، إذا سألتهم قالوا ما استخدمته شهر، وهم كذابين أنا استخدمه، ثم بأي وجه حق يسرقون فلوسي اللي فيه؟ قفلوا عليها الحساباحتجزوها أو سرقوها المهم انها عندهم، ويقولون راجع الفرع كأني فارغ ما عندي إلا هم، بآخذ فلوسي منهم ثم أروح للراجحي الله يعزه أفضل بنك</td><td>security</td><td>security</td><td>0.96927357</td><td>I9-APPROVED-0361</td><td>10020</td><td>security</td><td>حتى النجمة كثيرة عليهم زي ال ياناس أبغى أحدث رقم جوالي مخرفين حاطين لي رقم مدري لمين؟ وكل مايرسلوا الرقم السري يروح عليه وانا مايجيني حاولت التحديث من البيت مانفع ورحت البنك الوضع أسوأ وجع في شكلهم</td><td>True</td></tr><tr><td>4</td><td>app_store</td><td>AlBilad</td><td>يجب ان تجرى تحديثات لجعل التطبيق اكثر كفاءة للاسف التطبيق من ادخال الرمز للمرة الاولى وهو صحيح يطلع انه تم إيقاف الدخول لمحاولات دخول غير ناجحة غير ذلك جدًا بطيء وغير عملي والموقع الالكتروني توجد في خدمات الكترونية اللي كان الواجب انها تختصر الوقت والجهد لكن بعد متابعه خطوات كثيرة في الخدمة يطلع انها غير متوفرة لاسباب الكترونية اتمنى اضافه تحديثات وجعل التطبيق</td><td>security</td><td>security</td><td>0.96563625</td><td>I8-APPROVED-0112</td><td>8689</td><td>security</td><td>تطبيق غير جيد صراحه ومعقد حاولت الدخول بعد تنزيل بياناتى ومعلوماتى بدقه وفى كل مره يذكر لك التطبيق ان رقم الهوية غير صحيح او اى عذر اخر عند التواصل مع خدمة العملاء افادت الموظفه انه لابد ان تجرى اربعه محاولات والخامسه يحولك التطبيق الى نفاذ لماذا لايكون الدخول من مره واحده بعد تسجيل بياناتك وتوفير الوقت والجهد نرجو مراجعة اعدادات هذه التطبيق لتسهيل الامر على المواطن والمقيم</td><td>True</td></tr><tr><td>5</td><td>app_store</td><td>AlBilad</td><td>سيء للغاية وصعب الاستخدام الى الان هذا اسوء تطبيق بنك استخدمته تعبني جداً في استعادة بيانات الدخول وماقدرت استعيدها عن طريق التطبيق يطلب مني شغلات كثير وناهيك عن صعوبة ادخال الرمز القصير اللي يجيك عكس باقي تطبيقات البنوك الاخرى اللي تقدر منها تستعيد معلومات الدخول في دقائق قليلة ارجو العمل بشكل جدي اكثر على تحسين التطبيق وجعله سهل الاستخدام وسهل الوصول للبيانات</td><td>security</td><td>security</td><td>0.93370116</td><td>I3-ADD-0159</td><td>860</td><td>security</td><td>التطبيق جيد وإضافة الفواتير والتعرف عليها افضل من سابقه ولكن مشكلته انه يفرض عليك او يعرض عليك حفظ بياناتك او قراءة الرسائل في كل مرة دخول وهذا ما ارفضه بالنسبة الي لاني اخاف إمكانية الاختراق بالحفظ</td><td>True</td></tr><tr><td>6</td><td>app_store</td><td>AlBilad</td><td>بنك متخلف بمعنى الكلمه من اسواء البنوك كتطبيق متخلف جداً وواقع فعلي لخدمة العملاء بنك لا افهم ماهي سياسته بالتعامل ومعقد وللان يتعامل ورقياً اذا حظرت للبنك للتحويل او ماشابه ولازم تكتب بياناتك وبورقه قبل التحويل واسلوب بدائي جداً ليت يشوفون الراجحي والاهلي كيف متطورين ولا يحتاجون اي من متطلباتهم ونظامهم مقعد بالبطاقات وبكل امورهم اكبر غلطه اني فتحت حساب وخطيت عندهم رصيد وباشت استرجع الرصيد الا بزيارة البنك وتمسك سرا وفيه بطئ عجيب بموظفينهم واغلبهم غير مهتمين وخثوصا الخدمات الخاصه بفرع الريان خذ كلام بس تنفيذ صفر نصيحه لا تقرب هالبنك ابداً</td><td>security</td><td>security</td><td>0.9101191</td><td>I8-APPROVED-0164</td><td>8741</td><td>security</td><td>فاشل ومتعب ابسط وأسهل عملية تاخذ من وقتك الكثير كل محاوله ياتجي عملية مرفوضة يا تعلق الصفحة ويجيك الرقم السري لاتقدر تنتقل للصفحة التاليه عشان تدخل الرقم السري البنوك والمصارف تتطور ويعملون تحديث لنفس تطبيقهم الأساسي إلا مصرف الإنماء من الفشل والعار انه غير التطبيق وفشل فشل ذريع بالتقنية والاتمته حقيقة صار وضعه يخوف واحس صار غير آمن</td><td>True</td></tr><tr><td>7</td><td>app_store</td><td>AlBilad</td><td>خلل في التطبيق تحديت تاريخ ٣١ جولاي ٢٠٢٤ سيء سيء سي جداً دعمكم الفني للتطبيق مازال خطأ موجود وعطل امورنا وكل شوي يطلع الخطأ وفي اوقات اكون محتاجة احول اتوقع هذا آخر اسبوع لي معكم بسكر حسابي عندكم لايسمح لي بالدخول كل ماجيت اسجل دخول يطلب مني تفعيل خدمة تحديد الموقع من الإعدادات بالرغم من انها مفعله مما ادى لتعطيل كل اموري وإضاعة وقتي ارجو إصلاح العطل والحرص على ارضاء العميل ارجو إصلاح الخلل صار يحطنا في مواقف محرجه تطبيقكم</td><td>security</td><td>security</td><td>0.97107625</td><td>I3-ROW-0508</td><td>2211</td><td>security</td><td>تعليق في تسجيل الدخول قسم بلله شي مقرف ويطفش احتاج اخش الحساب مو راضي يرسلي رمز على واحطه يرجع يقولي رمز مره ثانيه وعلى ذا الحال لي كم ياليت تحلوها لان لها فتره ومدري كيف مشكله زي ذي ماتنحل فتره طويله وحاولت اخش حساب اخوي من جوالي عشان الايقاف برضو مو راضي بالحسابين اسوي نسيت كلمة المرور ويرسلي رمز ويجيني الاتصال حق التاكيد بعد ماخلص يقولي حط رمز اكتب الرمز يقولي حاول بعد ثانيه انتظر واجرب نفس المشكله اتمنى تحلوها لان يطفش الوضع</td><td>True</td></tr><tr><td>8</td><td>app_store</td><td>absher</td><td>مشكلة في الرمز يوجد مشكله في الرمز المرئي الارقام عربيه ولا تتغير ولا استطيع الكتابة</td><td>security</td><td>security</td><td>0.7236432</td><td>I3-ADD-0002</td><td>703</td><td>security</td><td>مشكلة في التطبيق بعد التحديث ١٣ التطبيق لا يقبل كتابة الارقام في الصوره باللغة الانجليزيه حيث انه لا يظهر لوحة المفاتيح باللغه الانجليزيه عند الانتقال الى خانة كتابة الكود الموجود بالصوره</td><td>True</td></tr><tr><td>9</td><td>app_store</td><td>alrajhiBank</td><td>فية مشكلة عندالضغط على ايقونة عرض فرص الفوز للدخول للعجلة حساب المليون التطبيق يقفل ويسجل خروج</td><td>security</td><td>non-security</td><td>0.44517332</td><td>I2-BASE-0161</td><td>160</td><td>non-security</td><td>مشكله في التطبيق عند الدخول في حساب المليون ايقونه اظهار الفرص يخرج من التطبيق تلقائيا</td><td>False</td></tr></tbody></table></div></section><section><h3>12_llm_gradio/outputs/metrics.json</h3><p>SHA-256: <code>B0D7914128B2D69BB04356B8C8CAB304BA60CA168C074783E9FC36B997A3A6F3</code></p><pre>{
+  &quot;accuracy&quot;: 0.912,
+  &quot;total&quot;: 1000,
+  &quot;correct&quot;: 912,
+  &quot;confusion_matrix&quot;: {
+    &quot;security&quot;: {
+      &quot;security&quot;: 488,
+      &quot;non-security&quot;: 12
+    },
+    &quot;non-security&quot;: {
+      &quot;security&quot;: 76,
+      &quot;non-security&quot;: 424
+    }
+  },
+  &quot;per_class&quot;: {
+    &quot;security&quot;: {
+      &quot;precision&quot;: 0.8652482269503546,
+      &quot;recall&quot;: 0.976,
+      &quot;f1&quot;: 0.9172932330827067,
+      &quot;support&quot;: 500
+    },
+    &quot;non-security&quot;: {
+      &quot;precision&quot;: 0.9724770642201835,
+      &quot;recall&quot;: 0.848,
+      &quot;f1&quot;: 0.9059829059829061,
+      &quot;support&quot;: 500
+    }
+  },
+  &quot;true_label_used_for_inference&quot;: false,
+  &quot;training_rows_original&quot;: 10632,
+  &quot;training_rows_deduplicated&quot;: 10631
+}</pre></section><section><h3>12_llm_gradio/outputs/run_manifest.json</h3><p>SHA-256: <code>335E791AE04B81EAEE437C53F2564F4709D99D09C0E32EA6B493383744C657DA</code></p><pre>{
+  &quot;created_utc&quot;: &quot;2026-08-27T23:45:07.037213+00:00&quot;,
+  &quot;execution&quot;: &quot;Modal GPU&quot;,
+  &quot;gpu&quot;: &quot;NVIDIA A10&quot;,
+  &quot;training_csv&quot;: &quot;/data/inputs/app_distribution_validation/final_label_data.csv&quot;,
+  &quot;heldout_csv&quot;: &quot;/data/inputs/app_distribution_validation/heldout.csv&quot;,
+  &quot;camelbert_model&quot;: &quot;/data/inputs/app_distribution_validation/Saved_Model/CAMeLBERT_Full_Model&quot;,
+  &quot;qwen_model&quot;: &quot;Qwen/Qwen3-8B&quot;,
+  &quot;classification&quot;: &quot;semantic 1-NN cosine similarity&quot;,
+  &quot;true_label_used_for_inference&quot;: false,
+  &quot;embedding_dimension&quot;: 768,
+  &quot;examples_per_group&quot;: 3,
+  &quot;selection&quot;: &quot;one high-support example per explicit semantic theme&quot;,
+  &quot;semantic_themes&quot;: [
+    {
+      &quot;example_id&quot;: &quot;security_training_01&quot;,
+      &quot;predicted_label&quot;: &quot;security&quot;,
+      &quot;source_kind&quot;: &quot;training&quot;,
+      &quot;semantic_theme&quot;: &quot;Privacy&quot;,
+      &quot;semantic_theme_ar&quot;: &quot;الخصوصية&quot;
+    },
+    {
+      &quot;example_id&quot;: &quot;security_training_02&quot;,
+      &quot;predicted_label&quot;: &quot;security&quot;,
+      &quot;source_kind&quot;: &quot;training&quot;,
+      &quot;semantic_theme&quot;: &quot;Authentication&quot;,
+      &quot;semantic_theme_ar&quot;: &quot;المصادقة وتسجيل الدخول&quot;
+    },
+    {
+      &quot;example_id&quot;: &quot;security_training_03&quot;,
+      &quot;predicted_label&quot;: &quot;security&quot;,
+      &quot;source_kind&quot;: &quot;training&quot;,
+      &quot;semantic_theme&quot;: &quot;Fraud&quot;,
+      &quot;semantic_theme_ar&quot;: &quot;الاحتيال&quot;
+    },
+    {
+      &quot;example_id&quot;: &quot;security_heldout_01&quot;,
+      &quot;predicted_label&quot;: &quot;security&quot;,
+      &quot;source_kind&quot;: &quot;heldout&quot;,
+      &quot;semantic_theme&quot;: &quot;Payment verification&quot;,
+      &quot;semantic_theme_ar&quot;: &quot;التحقق من الدفع والبطاقات&quot;
+    },
+    {
+      &quot;example_id&quot;: &quot;security_heldout_02&quot;,
+      &quot;predicted_label&quot;: &quot;security&quot;,
+      &quot;source_kind&quot;: &quot;heldout&quot;,
+      &quot;semantic_theme&quot;: &quot;Unauthorized charges&quot;,
+      &quot;semantic_theme_ar&quot;: &quot;السحب غير المصرح به&quot;
+    },
+    {
+      &quot;example_id&quot;: &quot;security_heldout_03&quot;,
+      &quot;predicted_label&quot;: &quot;security&quot;,
+      &quot;source_kind&quot;: &quot;heldout&quot;,
+      &quot;semantic_theme&quot;: &quot;Data protection&quot;,
+      &quot;semantic_theme_ar&quot;: &quot;حماية البيانات والتشفير&quot;
+    },
+    {
+      &quot;example_id&quot;: &quot;non-security_training_01&quot;,
+      &quot;predicted_label&quot;: &quot;non-security&quot;,
+      &quot;source_kind&quot;: &quot;training&quot;,
+      &quot;semantic_theme&quot;: &quot;Usability&quot;,
+      &quot;semantic_theme_ar&quot;: &quot;سهولة الاستخدام&quot;
+    },
+    {
+      &quot;example_id&quot;: &quot;non-security_training_02&quot;,
+      &quot;predicted_label&quot;: &quot;non-security&quot;,
+      &quot;source_kind&quot;: &quot;training&quot;,
+      &quot;semantic_theme&quot;: &quot;Performance&quot;,
+      &quot;semantic_theme_ar&quot;: &quot;الأداء والسرعة&quot;
+    },
+    {
+      &quot;example_id&quot;: &quot;non-security_training_03&quot;,
+      &quot;predicted_label&quot;: &quot;non-security&quot;,
+      &quot;source_kind&quot;: &quot;training&quot;,
+      &quot;semantic_theme&quot;: &quot;Updates&quot;,
+      &quot;semantic_theme_ar&quot;: &quot;التحديثات&quot;
+    },
+    {
+      &quot;example_id&quot;: &quot;non-security_heldout_01&quot;,
+      &quot;predicted_label&quot;: &quot;non-security&quot;,
+      &quot;source_kind&quot;: &quot;heldout&quot;,
+      &quot;semantic_theme&quot;: &quot;Advertising&quot;,
+      &quot;semantic_theme_ar&quot;: &quot;الإعلانات&quot;
+    },
+    {
+      &quot;example_id&quot;: &quot;non-security_heldout_02&quot;,
+      &quot;predicted_label&quot;: &quot;non-security&quot;,
+      &quot;source_kind&quot;: &quot;heldout&quot;,
+      &quot;semantic_theme&quot;: &quot;Language support&quot;,
+      &quot;semantic_theme_ar&quot;: &quot;دعم اللغة العربية&quot;
+    },
+    {
+      &quot;example_id&quot;: &quot;non-security_heldout_03&quot;,
+      &quot;predicted_label&quot;: &quot;non-security&quot;,
+      &quot;source_kind&quot;: &quot;heldout&quot;,
+      &quot;semantic_theme&quot;: &quot;Customer support&quot;,
+      &quot;semantic_theme_ar&quot;: &quot;دعم العملاء&quot;
+    }
+  ]
+}</pre></section><section><h3>12_llm_gradio/outputs/verification_report.json</h3><p>SHA-256: <code>77C57E5BEC011EC0D879DF664B58B9D3957121486BA95F46BE67E11769F6FBBC</code></p><pre>{
+  &quot;status&quot;: &quot;passed&quot;,
+  &quot;modal_unit_tests&quot;: &quot;9 passed&quot;,
+  &quot;independent_argmax_matches_all_heldout_predictions&quot;: true,
+  &quot;embedding_shapes&quot;: {
+    &quot;training&quot;: [
+      10631,
+      768
+    ],
+    &quot;heldout&quot;: [
+      1000,
+      768
+    ]
+  },
+  &quot;embeddings_finite_and_unit_normalized&quot;: true,
+  &quot;selected_reviews_unique&quot;: true,
+  &quot;selected_semantic_themes_unique&quot;: true,
+  &quot;semantic_themes&quot;: [
+    &quot;Privacy&quot;,
+    &quot;Authentication&quot;,
+    &quot;Fraud&quot;,
+    &quot;Payment verification&quot;,
+    &quot;Unauthorized charges&quot;,
+    &quot;Data protection&quot;,
+    &quot;Usability&quot;,
+    &quot;Performance&quot;,
+    &quot;Updates&quot;,
+    &quot;Advertising&quot;,
+    &quot;Language support&quot;,
+    &quot;Customer support&quot;
+  ],
+  &quot;deterministic_group_counts&quot;: {
+    &quot;non-security_heldout&quot;: 3,
+    &quot;non-security_training&quot;: 3,
+    &quot;security_heldout&quot;: 3,
+    &quot;security_training&quot;: 3
+  },
+  &quot;qwen_explanations_nonempty_english_without_thinking_tags&quot;: true,
+  &quot;explanations_english_only&quot;: true,
+  &quot;explanations_consistent_with_predicted_label&quot;: true,
+  &quot;one_nn_evidence_visible_in_exports&quot;: false,
+  &quot;actual_gradio_interaction_manifest&quot;: true,
+  &quot;png&quot;: {
+    &quot;count&quot;: 12,
+    &quot;width&quot;: 3840,
+    &quot;height&quot;: 2160
+  },
+  &quot;svg&quot;: {
+    &quot;count&quot;: 12,
+    &quot;xml_parse_passed&quot;: true
+  },
+  &quot;pdf&quot;: {
+    &quot;pages&quot;: 12,
+    &quot;arabic_font_embedded&quot;: true,
+    &quot;vector_lock_icon&quot;: true,
+    &quot;rendered_pages_inspected&quot;: 12,
+    &quot;clipping_detected&quot;: false
+  },
+  &quot;accuracy&quot;: 0.912,
+  &quot;true_label_used_for_inference&quot;: false
+}</pre></section>
+</body></html>

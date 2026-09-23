@@ -1,0 +1,13 @@
+{
+  "training_csv": "../04_active_learning/iteration_10/input/training_set.csv",
+  "heldout_csv": "../08_heldout_evaluation/data/heldout_1000.csv",
+  "camelbert_model": "../06_full_dataset_finetuning/models/CAMeLBERT_Full_Model",
+  "qwen_model": "Qwen/Qwen3-8B",
+  "cache_dir": "cache",
+  "output_dir": "outputs",
+  "embedding_batch_size": 32,
+  "similarity_batch_size": 256,
+  "examples_per_group": 3,
+  "qwen_max_new_tokens": 160,
+  "device": null
+}

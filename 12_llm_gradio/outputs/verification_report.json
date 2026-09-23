@@ -1,0 +1,61 @@
+{
+  "status": "passed",
+  "modal_unit_tests": "9 passed",
+  "independent_argmax_matches_all_heldout_predictions": true,
+  "embedding_shapes": {
+    "training": [
+      10631,
+      768
+    ],
+    "heldout": [
+      1000,
+      768
+    ]
+  },
+  "embeddings_finite_and_unit_normalized": true,
+  "selected_reviews_unique": true,
+  "selected_semantic_themes_unique": true,
+  "semantic_themes": [
+    "Privacy",
+    "Authentication",
+    "Fraud",
+    "Payment verification",
+    "Unauthorized charges",
+    "Data protection",
+    "Usability",
+    "Performance",
+    "Updates",
+    "Advertising",
+    "Language support",
+    "Customer support"
+  ],
+  "deterministic_group_counts": {
+    "non-security_heldout": 3,
+    "non-security_training": 3,
+    "security_heldout": 3,
+    "security_training": 3
+  },
+  "qwen_explanations_nonempty_english_without_thinking_tags": true,
+  "explanations_english_only": true,
+  "explanations_consistent_with_predicted_label": true,
+  "one_nn_evidence_visible_in_exports": false,
+  "actual_gradio_interaction_manifest": true,
+  "png": {
+    "count": 12,
+    "width": 3840,
+    "height": 2160
+  },
+  "svg": {
+    "count": 12,
+    "xml_parse_passed": true
+  },
+  "pdf": {
+    "pages": 12,
+    "arabic_font_embedded": true,
+    "vector_lock_icon": true,
+    "rendered_pages_inspected": 12,
+    "clipping_detected": false
+  },
+  "accuracy": 0.912,
+  "true_label_used_for_inference": false
+}

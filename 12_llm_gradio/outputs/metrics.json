@@ -1,0 +1,32 @@
+{
+  "accuracy": 0.912,
+  "total": 1000,
+  "correct": 912,
+  "confusion_matrix": {
+    "security": {
+      "security": 488,
+      "non-security": 12
+    },
+    "non-security": {
+      "security": 76,
+      "non-security": 424
+    }
+  },
+  "per_class": {
+    "security": {
+      "precision": 0.8652482269503546,
+      "recall": 0.976,
+      "f1": 0.9172932330827067,
+      "support": 500
+    },
+    "non-security": {
+      "precision": 0.9724770642201835,
+      "recall": 0.848,
+      "f1": 0.9059829059829061,
+      "support": 500
+    }
+  },
+  "true_label_used_for_inference": false,
+  "training_rows_original": 10632,
+  "training_rows_deduplicated": 10631
+}

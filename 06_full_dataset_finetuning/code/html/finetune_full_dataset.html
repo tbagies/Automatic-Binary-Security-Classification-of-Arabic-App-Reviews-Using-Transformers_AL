@@ -1,0 +1,1097 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="source-sha256" content="84AB6B02CCAE1B2F9E3B220290A83B69962986B7728D11917248A88EF4250580"><meta name="captured-output-manifest" content="[{&quot;bytes&quot;: 90, &quot;path&quot;: &quot;06_full_dataset_finetuning/models/CAMeLBERT_Full_Model/1_Pooling/config.json&quot;, &quot;sha256&quot;: &quot;8759BDF7C77EFC7DF7723F64856A593C8943B71EE38BAF2A88771FBAF78438F9&quot;}, {&quot;bytes&quot;: 706, &quot;path&quot;: &quot;06_full_dataset_finetuning/models/CAMeLBERT_Full_Model/config.json&quot;, &quot;sha256&quot;: &quot;B7F7C41136B39382B8AB054AD6EB67E59B060AE55776703020985404E65AAEF2&quot;}, {&quot;bytes&quot;: 284, &quot;path&quot;: &quot;06_full_dataset_finetuning/models/CAMeLBERT_Full_Model/config_sentence_transformers.json&quot;, &quot;sha256&quot;: &quot;4574F8F3A32414CD3C80832D8A682C4E8BDE234DF12996A820FD214B16C32158&quot;}, {&quot;bytes&quot;: 277, &quot;path&quot;: &quot;06_full_dataset_finetuning/models/CAMeLBERT_Full_Model/modules.json&quot;, &quot;sha256&quot;: &quot;E4068AAB8A95663636C4C28044A95EAFDB6492387397EC8283D8F8B31078D645&quot;}, {&quot;bytes&quot;: 241, &quot;path&quot;: &quot;06_full_dataset_finetuning/models/CAMeLBERT_Full_Model/sentence_bert_config.json&quot;, &quot;sha256&quot;: &quot;3084164002C0BCA01B0259C5327123803FCE32E660A57FEB93184FFEAD186FC8&quot;}, {&quot;bytes&quot;: 776337, &quot;path&quot;: &quot;06_full_dataset_finetuning/models/CAMeLBERT_Full_Model/tokenizer.json&quot;, &quot;sha256&quot;: &quot;7A02334A79397B2720803AFF13B2111353591CB0780B432F745A6FAAAA34B486&quot;}, {&quot;bytes&quot;: 383, &quot;path&quot;: &quot;06_full_dataset_finetuning/models/CAMeLBERT_Full_Model/tokenizer_config.json&quot;, &quot;sha256&quot;: &quot;2E3451661B3A7FC059AABF2966F157E636079389CB4422F047BEAD5D8914D939&quot;}, {&quot;bytes&quot;: 90, &quot;path&quot;: &quot;06_full_dataset_finetuning/models/MARBERTv2_Full_Model/1_Pooling/config.json&quot;, &quot;sha256&quot;: &quot;8759BDF7C77EFC7DF7723F64856A593C8943B71EE38BAF2A88771FBAF78438F9&quot;}, {&quot;bytes&quot;: 939, &quot;path&quot;: &quot;06_full_dataset_finetuning/models/MARBERTv2_Full_Model/config.json&quot;, &quot;sha256&quot;: &quot;E2073094CBC4375F41074AE1FD235B3A833F6D9BE1B2B5012F272CEAC4B201E0&quot;}, {&quot;bytes&quot;: 284, &quot;path&quot;: &quot;06_full_dataset_finetuning/models/MARBERTv2_Full_Model/config_sentence_transformers.json&quot;, &quot;sha256&quot;: &quot;4574F8F3A32414CD3C80832D8A682C4E8BDE234DF12996A820FD214B16C32158&quot;}, {&quot;bytes&quot;: 277, &quot;path&quot;: &quot;06_full_dataset_finetuning/models/MARBERTv2_Full_Model/modules.json&quot;, &quot;sha256&quot;: &quot;E4068AAB8A95663636C4C28044A95EAFDB6492387397EC8283D8F8B31078D645&quot;}, {&quot;bytes&quot;: 241, &quot;path&quot;: &quot;06_full_dataset_finetuning/models/MARBERTv2_Full_Model/sentence_bert_config.json&quot;, &quot;sha256&quot;: &quot;3084164002C0BCA01B0259C5327123803FCE32E660A57FEB93184FFEAD186FC8&quot;}, {&quot;bytes&quot;: 403, &quot;path&quot;: &quot;06_full_dataset_finetuning/models/MARBERTv2_Full_Model/tokenizer_config.json&quot;, &quot;sha256&quot;: &quot;88DAA728095232BD6B00288F6699456B923396267882822F769F42C89E1C225C&quot;}, {&quot;bytes&quot;: 90, &quot;path&quot;: &quot;06_full_dataset_finetuning/models/paraphrase-multilingual-MiniLM-L12-v2_Full_Model/1_Pooling/config.json&quot;, &quot;sha256&quot;: &quot;4FEF0A7E8C8EE36E74C0FAD89BAB60ADE72324442D43F559EA219BB7C2580710&quot;}, {&quot;bytes&quot;: 742, &quot;path&quot;: &quot;06_full_dataset_finetuning/models/paraphrase-multilingual-MiniLM-L12-v2_Full_Model/config.json&quot;, &quot;sha256&quot;: &quot;EB48E99F90120892987C2DAE9DC8F784388A83A3F7378075FBBB555FFE26A217&quot;}, {&quot;bytes&quot;: 284, &quot;path&quot;: &quot;06_full_dataset_finetuning/models/paraphrase-multilingual-MiniLM-L12-v2_Full_Model/config_sentence_transformers.json&quot;, &quot;sha256&quot;: &quot;4574F8F3A32414CD3C80832D8A682C4E8BDE234DF12996A820FD214B16C32158&quot;}, {&quot;bytes&quot;: 277, &quot;path&quot;: &quot;06_full_dataset_finetuning/models/paraphrase-multilingual-MiniLM-L12-v2_Full_Model/modules.json&quot;, &quot;sha256&quot;: &quot;E4068AAB8A95663636C4C28044A95EAFDB6492387397EC8283D8F8B31078D645&quot;}, {&quot;bytes&quot;: 241, &quot;path&quot;: &quot;06_full_dataset_finetuning/models/paraphrase-multilingual-MiniLM-L12-v2_Full_Model/sentence_bert_config.json&quot;, &quot;sha256&quot;: &quot;3084164002C0BCA01B0259C5327123803FCE32E660A57FEB93184FFEAD186FC8&quot;}, {&quot;bytes&quot;: 588, &quot;path&quot;: &quot;06_full_dataset_finetuning/models/paraphrase-multilingual-MiniLM-L12-v2_Full_Model/tokenizer_config.json&quot;, &quot;sha256&quot;: &quot;52202D0E04FF99028314E47C17F34B434D464D5329439874CAEDAEFA9408E047&quot;}]">
+<title>06_full_dataset_finetuning/code/python/finetune_full_dataset.py</title>
+<style>body{font:15px/1.55 system-ui,sans-serif;max-width:1200px;margin:2rem auto;padding:0 1.2rem;color:#172033}h1,h2,h3{color:#103c5a}pre{direction:ltr;text-align:left;background:#0d1726;color:#e8eef7;padding:1rem;border-radius:8px;overflow:auto;white-space:pre}code{font-family:ui-monospace,Consolas,monospace}table{border-collapse:collapse;font-size:12px}th,td{padding:.35rem .5rem;border:1px solid #ccd5df;text-align:left;max-width:360px;overflow-wrap:anywhere}th{background:#e9f1f7}.table-wrap{overflow:auto}img{max-width:100%;height:auto;border:1px solid #ccd5df}</style></head>
+<body><h1>finetune_full_dataset.py</h1><p>Canonical Python source: <code>06_full_dataset_finetuning/code/python/finetune_full_dataset.py</code><br>SHA-256: <code>84AB6B02CCAE1B2F9E3B220290A83B69962986B7728D11917248A88EF4250580</code></p>
+<h2>Python code</h2><pre><code>&quot;&quot;&quot;Fine-tune and save the three paper SentenceTransformers on all 10,632 rows.&quot;&quot;&quot;
+
+from __future__ import annotations
+
+import argparse
+import json
+from pathlib import Path
+
+import pandas as pd
+import torch
+from datasets import Dataset
+from sentence_transformers import SentenceTransformer
+from sentence_transformers.losses import BatchAllTripletLoss
+from sentence_transformers.trainer import SentenceTransformerTrainer
+from sentence_transformers.training_args import SentenceTransformerTrainingArguments
+
+
+LABEL_TO_ID = {&quot;non-security&quot;: 0, &quot;security&quot;: 1}
+OUTPUT_NAMES = {
+    &quot;camelbert&quot;: &quot;CAMeLBERT_Full_Model&quot;,
+    &quot;marbertv2&quot;: &quot;MARBERTv2_Full_Model&quot;,
+    &quot;paraphrase&quot;: &quot;paraphrase-multilingual-MiniLM-L12-v2_Full_Model&quot;,
+}
+
+
+def run(training_csv: Path, config_path: Path, output: Path) -&gt; None:
+    config = json.loads(config_path.read_text(encoding=&quot;utf-8&quot;))
+    frame = pd.read_csv(training_csv)
+    required = {&quot;content&quot;, &quot;Keyword&quot;, &quot;store&quot;, &quot;app_name&quot;}
+    if missing := required - set(frame.columns):
+        raise ValueError(f&quot;missing columns: {sorted(missing)}&quot;)
+    if len(frame) != 10_632:
+        raise AssertionError(&quot;full fine-tuning requires exactly 10,632 rows&quot;)
+    labels = frame[&quot;Keyword&quot;].map(LABEL_TO_ID)
+    if labels.value_counts().to_dict() != {0: 5_316, 1: 5_316}:
+        raise AssertionError(&quot;full fine-tuning data must be balanced 5,316/5,316&quot;)
+
+    fine_tuning = config[&quot;final_fine_tuning&quot;]
+    seed = int(fine_tuning.get(&quot;seed&quot;, config[&quot;seed&quot;]))
+    output.mkdir(parents=True, exist_ok=True)
+    dataset = Dataset.from_dict({
+        &quot;sentence&quot;: frame[&quot;content&quot;].astype(str).tolist(),
+        &quot;label&quot;: labels.astype(int).tolist(),
+    })
+
+    for model_key, model_name in config[&quot;transformers&quot;].items():
+        torch.manual_seed(seed)
+        model = SentenceTransformer(model_name)
+        model.max_seq_length = min(
+            model.max_seq_length, int(fine_tuning.get(&quot;max_length&quot;, model.max_seq_length))
+        )
+        model_dir = output / OUTPUT_NAMES[model_key]
+        arguments = SentenceTransformerTrainingArguments(
+            output_dir=str(model_dir / &quot;training&quot;),
+            num_train_epochs=int(fine_tuning[&quot;epochs&quot;]),
+            per_device_train_batch_size=int(fine_tuning[&quot;batch_size&quot;]),
+            warmup_ratio=float(fine_tuning[&quot;warmup_ratio&quot;]),
+            learning_rate=float(fine_tuning[&quot;learning_rate&quot;]),
+            lr_scheduler_type=str(fine_tuning[&quot;scheduler&quot;]),
+            fp16=torch.cuda.is_available(),
+            save_strategy=&quot;no&quot;,
+            seed=seed,
+            report_to=[],
+        )
+        trainer = SentenceTransformerTrainer(
+            model=model,
+            args=arguments,
+            train_dataset=dataset,
+            loss=BatchAllTripletLoss(model=model),
+        )
+        trainer.train()
+        trainer.save_model(model_dir)
+
+
+def main() -&gt; None:
+    parser = argparse.ArgumentParser()
+    parser.add_argument(&quot;training_csv&quot;, type=Path)
+    parser.add_argument(&quot;config&quot;, type=Path)
+    parser.add_argument(&quot;output&quot;, type=Path)
+    args = parser.parse_args()
+    run(args.training_csv, args.config, args.output)
+
+
+if __name__ == &quot;__main__&quot;:
+    main()
+</code></pre>
+<h2>Verified captured outputs (not re-executed)</h2><section><h3>06_full_dataset_finetuning/models/CAMeLBERT_Full_Model/1_Pooling/config.json</h3><p>SHA-256: <code>8759BDF7C77EFC7DF7723F64856A593C8943B71EE38BAF2A88771FBAF78438F9</code></p><pre>{
+    &quot;embedding_dimension&quot;: 768,
+    &quot;pooling_mode&quot;: &quot;mean&quot;,
+    &quot;include_prompt&quot;: true
+}</pre></section><section><h3>06_full_dataset_finetuning/models/CAMeLBERT_Full_Model/config.json</h3><p>SHA-256: <code>B7F7C41136B39382B8AB054AD6EB67E59B060AE55776703020985404E65AAEF2</code></p><pre>{
+  &quot;add_cross_attention&quot;: false,
+  &quot;architectures&quot;: [
+    &quot;BertModel&quot;
+  ],
+  &quot;attention_probs_dropout_prob&quot;: 0.1,
+  &quot;bos_token_id&quot;: null,
+  &quot;classifier_dropout&quot;: null,
+  &quot;dtype&quot;: &quot;float32&quot;,
+  &quot;eos_token_id&quot;: null,
+  &quot;gradient_checkpointing&quot;: false,
+  &quot;hidden_act&quot;: &quot;gelu&quot;,
+  &quot;hidden_dropout_prob&quot;: 0.1,
+  &quot;hidden_size&quot;: 768,
+  &quot;initializer_range&quot;: 0.02,
+  &quot;intermediate_size&quot;: 3072,
+  &quot;is_decoder&quot;: false,
+  &quot;layer_norm_eps&quot;: 1e-12,
+  &quot;max_position_embeddings&quot;: 512,
+  &quot;model_type&quot;: &quot;bert&quot;,
+  &quot;num_attention_heads&quot;: 12,
+  &quot;num_hidden_layers&quot;: 12,
+  &quot;pad_token_id&quot;: 0,
+  &quot;tie_word_embeddings&quot;: true,
+  &quot;transformers_version&quot;: &quot;5.16.1&quot;,
+  &quot;type_vocab_size&quot;: 2,
+  &quot;use_cache&quot;: false,
+  &quot;vocab_size&quot;: 30000
+}
+</pre></section><section><h3>06_full_dataset_finetuning/models/CAMeLBERT_Full_Model/config_sentence_transformers.json</h3><p>SHA-256: <code>4574F8F3A32414CD3C80832D8A682C4E8BDE234DF12996A820FD214B16C32158</code></p><pre>{
+  &quot;__version__&quot;: {
+    &quot;pytorch&quot;: &quot;2.13.0+cu130&quot;,
+    &quot;sentence_transformers&quot;: &quot;6.0.0&quot;,
+    &quot;transformers&quot;: &quot;5.16.1&quot;
+  },
+  &quot;default_prompt_name&quot;: null,
+  &quot;model_type&quot;: &quot;SentenceTransformer&quot;,
+  &quot;prompts&quot;: {
+    &quot;document&quot;: &quot;&quot;,
+    &quot;query&quot;: &quot;&quot;
+  },
+  &quot;similarity_fn_name&quot;: &quot;cosine&quot;
+}</pre></section><section><h3>06_full_dataset_finetuning/models/CAMeLBERT_Full_Model/modules.json</h3><p>SHA-256: <code>E4068AAB8A95663636C4C28044A95EAFDB6492387397EC8283D8F8B31078D645</code></p><pre>[
+  {
+    &quot;idx&quot;: 0,
+    &quot;name&quot;: &quot;0&quot;,
+    &quot;path&quot;: &quot;&quot;,
+    &quot;type&quot;: &quot;sentence_transformers.base.modules.transformer.Transformer&quot;
+  },
+  {
+    &quot;idx&quot;: 1,
+    &quot;name&quot;: &quot;1&quot;,
+    &quot;path&quot;: &quot;1_Pooling&quot;,
+    &quot;type&quot;: &quot;sentence_transformers.sentence_transformer.modules.pooling.Pooling&quot;
+  }
+]</pre></section><section><h3>06_full_dataset_finetuning/models/CAMeLBERT_Full_Model/sentence_bert_config.json</h3><p>SHA-256: <code>3084164002C0BCA01B0259C5327123803FCE32E660A57FEB93184FFEAD186FC8</code></p><pre>{
+    &quot;transformer_task&quot;: &quot;feature-extraction&quot;,
+    &quot;modality_config&quot;: {
+        &quot;text&quot;: {
+            &quot;method&quot;: &quot;forward&quot;,
+            &quot;method_output_name&quot;: &quot;last_hidden_state&quot;
+        }
+    },
+    &quot;module_output_name&quot;: &quot;token_embeddings&quot;
+}</pre></section><section><h3>06_full_dataset_finetuning/models/CAMeLBERT_Full_Model/tokenizer.json</h3><p>SHA-256: <code>7A02334A79397B2720803AFF13B2111353591CB0780B432F745A6FAAAA34B486</code></p><pre>{
+  &quot;version&quot;: &quot;1.0&quot;,
+  &quot;truncation&quot;: {
+    &quot;direction&quot;: &quot;Right&quot;,
+    &quot;max_length&quot;: 512,
+    &quot;strategy&quot;: &quot;LongestFirst&quot;,
+    &quot;stride&quot;: 0
+  },
+  &quot;padding&quot;: {
+    &quot;strategy&quot;: &quot;BatchLongest&quot;,
+    &quot;direction&quot;: &quot;Right&quot;,
+    &quot;pad_to_multiple_of&quot;: null,
+    &quot;pad_id&quot;: 0,
+    &quot;pad_type_id&quot;: 0,
+    &quot;pad_token&quot;: &quot;[PAD]&quot;
+  },
+  &quot;added_tokens&quot;: [
+    {
+      &quot;id&quot;: 0,
+      &quot;content&quot;: &quot;[PAD]&quot;,
+      &quot;single_word&quot;: false,
+      &quot;lstrip&quot;: false,
+      &quot;rstrip&quot;: false,
+      &quot;normalized&quot;: false,
+      &quot;special&quot;: true
+    },
+    {
+      &quot;id&quot;: 1,
+      &quot;content&quot;: &quot;[UNK]&quot;,
+      &quot;single_word&quot;: false,
+      &quot;lstrip&quot;: false,
+      &quot;rstrip&quot;: false,
+      &quot;normalized&quot;: false,
+      &quot;special&quot;: true
+    },
+    {
+      &quot;id&quot;: 2,
+      &quot;content&quot;: &quot;[CLS]&quot;,
+      &quot;single_word&quot;: false,
+      &quot;lstrip&quot;: false,
+      &quot;rstrip&quot;: false,
+      &quot;normalized&quot;: false,
+      &quot;special&quot;: true
+    },
+    {
+      &quot;id&quot;: 3,
+      &quot;content&quot;: &quot;[SEP]&quot;,
+      &quot;single_word&quot;: false,
+      &quot;lstrip&quot;: false,
+      &quot;rstrip&quot;: false,
+      &quot;normalized&quot;: false,
+      &quot;special&quot;: true
+    },
+    {
+      &quot;id&quot;: 4,
+      &quot;content&quot;: &quot;[MASK]&quot;,
+      &quot;single_word&quot;: false,
+      &quot;lstrip&quot;: false,
+      &quot;rstrip&quot;: false,
+      &quot;normalized&quot;: false,
+      &quot;special&quot;: true
+    }
+  ],
+  &quot;normalizer&quot;: {
+    &quot;type&quot;: &quot;BertNormalizer&quot;,
+    &quot;clean_text&quot;: true,
+    &quot;handle_chinese_chars&quot;: true,
+    &quot;strip_accents&quot;: null,
+    &quot;lowercase&quot;: false
+  },
+  &quot;pre_tokenizer&quot;: {
+    &quot;type&quot;: &quot;BertPreTokenizer&quot;
+  },
+  &quot;post_processor&quot;: {
+    &quot;type&quot;: &quot;TemplateProcessing&quot;,
+    &quot;single&quot;: [
+      {
+        &quot;SpecialToken&quot;: {
+          &quot;id&quot;: &quot;[CLS]&quot;,
+          &quot;type_id&quot;: 0
+        }
+      },
+      {
+        &quot;Sequence&quot;: {
+          &quot;id&quot;: &quot;A&quot;,
+          &quot;type_id&quot;: 0
+        }
+      },
+      {
+        &quot;SpecialToken&quot;: {
+          &quot;id&quot;: &quot;[SEP]&quot;,
+          &quot;type_id&quot;: 0
+        }
+      }
+    ],
+    &quot;pair&quot;: [
+      {
+        &quot;SpecialToken&quot;: {
+          &quot;id&quot;: &quot;[CLS]&quot;,
+          &quot;type_id&quot;: 0
+        }
+      },
+      {
+        &quot;Sequence&quot;: {
+          &quot;id&quot;: &quot;A&quot;,
+          &quot;type_id&quot;: 0
+        }
+      },
+      {
+        &quot;SpecialToken&quot;: {
+          &quot;id&quot;: &quot;[SEP]&quot;,
+          &quot;type_id&quot;: 0
+        }
+      },
+      {
+        &quot;Sequence&quot;: {
+          &quot;id&quot;: &quot;B&quot;,
+          &quot;type_id&quot;: 1
+        }
+      },
+      {
+        &quot;SpecialToken&quot;: {
+          &quot;id&quot;: &quot;[SEP]&quot;,
+          &quot;type_id&quot;: 1
+        }
+      }
+    ],
+    &quot;special_tokens&quot;: {
+      &quot;[CLS]&quot;: {
+        &quot;id&quot;: &quot;[CLS]&quot;,
+        &quot;ids&quot;: [
+          2
+        ],
+        &quot;tokens&quot;: [
+          &quot;[CLS]&quot;
+        ]
+      },
+      &quot;[SEP]&quot;: {
+        &quot;id&quot;: &quot;[SEP]&quot;,
+        &quot;ids&quot;: [
+          3
+        ],
+        &quot;tokens&quot;: [
+          &quot;[SEP]&quot;
+        ]
+      }
+    }
+  },
+  &quot;decoder&quot;: {
+    &quot;type&quot;: &quot;WordPiece&quot;,
+    &quot;prefix&quot;: &quot;##&quot;,
+    &quot;cleanup&quot;: true
+  },
+  &quot;model&quot;: {
+    &quot;type&quot;: &quot;WordPiece&quot;,
+    &quot;unk_token&quot;: &quot;[UNK]&quot;,
+    &quot;continuing_subword_prefix&quot;: &quot;##&quot;,
+    &quot;max_input_chars_per_word&quot;: 100,
+    &quot;vocab&quot;: {
+      &quot;[PAD]&quot;: 0,
+      &quot;[UNK]&quot;: 1,
+      &quot;[CLS]&quot;: 2,
+      &quot;[SEP]&quot;: 3,
+      &quot;[MASK]&quot;: 4,
+      &quot;!&quot;: 5,
+      &quot;\&quot;&quot;: 6,
+      &quot;#&quot;: 7,
+      &quot;$&quot;: 8,
+      &quot;%&quot;: 9,
+      &quot;&amp;&quot;: 10,
+      &quot;&#x27;&quot;: 11,
+      &quot;(&quot;: 12,
+      &quot;)&quot;: 13,
+      &quot;*&quot;: 14,
+      &quot;+&quot;: 15,
+      &quot;,&quot;: 16,
+      &quot;-&quot;: 17,
+      &quot;.&quot;: 18,
+      &quot;/&quot;: 19,
+      &quot;0&quot;: 20,
+      &quot;1&quot;: 21,
+      &quot;2&quot;: 22,
+      &quot;3&quot;: 23,
+      &quot;4&quot;: 24,
+      &quot;5&quot;: 25,
+      &quot;6&quot;: 26,
+      &quot;7&quot;: 27,
+      &quot;8&quot;: 28,
+      &quot;9&quot;: 29,
+      &quot;:&quot;: 30,
+      &quot;;&quot;: 31,
+      &quot;&lt;&quot;: 32,
+      &quot;=&quot;: 33,
+      &quot;&gt;&quot;: 34,
+      &quot;?&quot;: 35,
+      &quot;@&quot;: 36,
+      &quot;A&quot;: 37,
+      &quot;B&quot;: 38,
+      &quot;C&quot;: 39,
+      &quot;D&quot;: 40,
+      &quot;E&quot;: 41,
+      &quot;F&quot;: 42,
+      &quot;G&quot;: 43,
+      &quot;H&quot;: 44,
+      &quot;I&quot;: 45,
+      &quot;J&quot;: 46,
+      &quot;K&quot;: 47,
+      &quot;L&quot;: 48,
+      &quot;M&quot;: 49,
+      &quot;N&quot;: 50,
+      &quot;O&quot;: 51,
+      &quot;P&quot;: 52,
+      &quot;Q&quot;: 53,
+      &quot;R&quot;: 54,
+      &quot;S&quot;: 55,
+      &quot;T&quot;: 56,
+      &quot;U&quot;: 57,
+      &quot;V&quot;: 58,
+      &quot;W&quot;: 59,
+      &quot;X&quot;: 60,
+      &quot;Y&quot;: 61,
+      &quot;Z&quot;: 62,
+      &quot;[&quot;: 63,
+      &quot;\\&quot;: 64,
+      &quot;]&quot;: 65,
+      &quot;^&quot;: 66,
+      &quot;_&quot;: 67,
+      &quot;`&quot;: 68,
+      &quot;a&quot;: 69,
+      &quot;b&quot;: 70,
+      &quot;c&quot;: 71,
+      &quot;d&quot;: 72,
+      &quot;e&quot;: 73,
+      &quot;f&quot;: 74,
+      &quot;g&quot;: 75,
+      &quot;h&quot;: 76,
+      &quot;i&quot;: 77,
+      &quot;j&quot;: 78,
+      &quot;k&quot;: 79,
+      &quot;l&quot;: 80,
+      &quot;m&quot;: 81,
+      &quot;n&quot;: 82,
+      &quot;o&quot;: 83,
+      &quot;p&quot;: 84,
+      &quot;q&quot;: 85,
+      &quot;r&quot;: 86,
+      &quot;s&quot;: 87,
+      &quot;t&quot;: 88,
+      &quot;u&quot;: 89,
+      &quot;v&quot;: 90,
+      &quot;w&quot;: 91,
+      &quot;x&quot;: 92,
+      &quot;y&quot;: 93,
+      &quot;z&quot;: 94,
+      &quot;{&quot;: 95,
+      &quot;|&quot;: 96,
+      &quot;}&quot;: 97,
+      &quot;~&quot;: 98,
+      &quot;¡&quot;: 99,
+      &quot;¢&quot;: 100,
+      &quot;£&quot;: 101,
+      &quot;¤&quot;: 102,
+      &quot;¥&quot;: 103,
+      &quot;¦&quot;: 104,
+      &quot;§&quot;: 105,
+      &quot;©&quot;: 106,
+      &quot;«&quot;: 107,
+      &quot;¬&quot;: 108,
+      &quot;®&quot;: 109,
+      &quot;°&quot;: 110,
+      &quot;±&quot;: 111,
+      &quot;¶&quot;: 112,
+      &quot;·&quot;: 113,
+      &quot;»&quot;: 114,
+      &quot;¿&quot;: 115,
+      &quot;Â&quot;: 116,
+      &quot;Ã&quot;: 117,
+      &quot;Å&quot;: 118,
+      &quot;Ç&quot;: 119,
+      &quot;É&quot;: 120,
+      &quot;Ê&quot;: 121,
+      &quot;Ï&quot;: 122,
+      &quot;Ð&quot;: 123,
+      &quot;Ñ&quot;: 124,
+      &quot;Ö&quot;: 125,
+      &quot;×&quot;: 126,
+      &quot;Ø&quot;: 127,
+      &quot;Ù&quot;: 128,
+      &quot;Ü&quot;: 129,
+      &quot;Þ&quot;: 130,
+      &quot;ß&quot;: 131,
+      &quot;à&quot;: 132,
+      &quot;á&quot;: 133,
+      &quot;â&quot;: 134,
+      &quot;ã&quot;: 135,
+      &quot;ä&quot;: 136,
+      &quot;å&quot;: 137,
+      &quot;æ&quot;: 138,
+      &quot;ç&quot;: 139,
+      &quot;è&quot;: 140,
+      &quot;é&quot;: 141,
+      &quot;ê&quot;: 142,
+      &quot;ë&quot;: 143,
+      &quot;í&quot;: 144,
+      &quot;î&quot;: 145,
+      &quot;ï&quot;: 146,
+      &quot;ñ&quot;: 147,
+      &quot;ò&quot;: 148,
+      &quot;ó&quot;: 149,
+      &quot;ô&quot;: 150,
+      &quot;õ&quot;: 151,
+      &quot;ö&quot;: 152,
+      &quot;÷&quot;: 153,
+      &quot;ø&quot;: 154,
+      &quot;ù&quot;: 155,
+      &quot;ú&quot;: 156,
+      &quot;û&quot;: 157,
+      &quot;ü&quot;: 158,
+      &quot;ā&quot;: 159,
+      &quot;ă&quot;: 160,
+      &quot;Ą&quot;: 161,
+      &quot;ą&quot;: 162,
+      &quot;ć&quot;: 163,
+      &quot;ĉ&quot;: 164,
+      &quot;Č&quot;: 165,
+      &quot;č&quot;: 166,
+      &quot;ď&quot;: 167,
+      &quot;Đ&quot;: 168,
+      &quot;đ&quot;: 169,
+      &quot;ę&quot;: 170,
+      &quot;ğ&quot;: 171,
+      &quot;Ģ&quot;: 172,
+      &quot;ī&quot;: 173,
+      &quot;į&quot;: 174,
+      &quot;İ&quot;: 175,
+      &quot;ı&quot;: 176,
+      &quot;ĸ&quot;: 177,
+      &quot;Ļ&quot;: 178,
+      &quot;Ľ&quot;: 179,
+      &quot;Ł&quot;: 180,
+      &quot;ł&quot;: 181,
+      &quot;ŋ&quot;: 182,
+      &quot;ō&quot;: 183,
+      &quot;ő&quot;: 184,
+      &quot;Œ&quot;: 185,
+      &quot;œ&quot;: 186,
+      &quot;Ŗ&quot;: 187,
+      &quot;Ś&quot;: 188,
+      &quot;ś&quot;: 189,
+      &quot;ŝ&quot;: 190,
+      &quot;Ş&quot;: 191,
+      &quot;ş&quot;: 192,
+      &quot;Š&quot;: 193,
+      &quot;š&quot;: 194,
+      &quot;ţ&quot;: 195,
+      &quot;Ť&quot;: 196,
+      &quot;Ŧ&quot;: 197,
+      &quot;ū&quot;: 198,
+      &quot;ŷ&quot;: 199,
+      &quot;ž&quot;: 200,
+      &quot;ƒ&quot;: 201,
+      &quot;ư&quot;: 202,
+      &quot;Ʒ&quot;: 203,
+      &quot;Ƹ&quot;: 204,
+      &quot;ƽ&quot;: 205,
+      &quot;ǁ&quot;: 206,
+      &quot;ǿ&quot;: 207,
+      &quot;ȫ&quot;: 208,
+      &quot;ə&quot;: 209,
+      &quot;ɪ&quot;: 210,
+      &quot;ɱ&quot;: 211,
+      &quot;ʁ&quot;: 212,
+      &quot;ʃ&quot;: 213,
+      &quot;ʋ&quot;: 214,
+      &quot;ʘ&quot;: 215,
+      &quot;ʽ&quot;: 216,
+      &quot;ʾ&quot;: 217,
+      &quot;ʿ&quot;: 218,
+      &quot;ˆ&quot;: 219,
+      &quot;ˉ&quot;: 220,
+      &quot;ˮ&quot;: 221,
+      &quot;́&quot;: 222,
+      &quot;̃&quot;: 223,
+      &quot;̄&quot;: 224,
+      &quot;̅&quot;: 225,
+      &quot;̇&quot;: 226,
+      &quot;̈&quot;: 227,
+      &quot;̊&quot;: 228,
+      &quot;̡&quot;: 229,
+      &quot;̧&quot;: 230,
+      &quot;̨&quot;: 231,
+      &quot;̲&quot;: 232,
+      &quot;̳&quot;: 233,
+      &quot;̴&quot;: 234,
+      &quot;̵&quot;: 235,
+      &quot;̶&quot;: 236,
+      &quot;̷&quot;: 237,
+      &quot;̸&quot;: 238,
+      &quot;͡&quot;: 239,
+      &quot;ͼ&quot;: 240,
+      &quot;Θ&quot;: 241,
+      &quot;Μ&quot;: 242,
+      &quot;Ξ&quot;: 243,
+      &quot;Σ&quot;: 244,
+      &quot;Ψ&quot;: 245,
+      &quot;Ω&quot;: 246,
+      &quot;ά&quot;: 247,
+      &quot;έ&quot;: 248,
+      &quot;ή&quot;: 249,
+      &quot;ί&quot;: 250,
+      &quot;α&quot;: 251,
+      &quot;β&quot;: 252,
+      &quot;γ&quot;: 253,
+      &quot;ε&quot;: 254,
+      &quot;ζ&quot;: 255,
+      &quot;η&quot;: 256,
+      &quot;θ&quot;: 257,
+      &quot;ι&quot;: 258,
+      &quot;κ&quot;: 259,
+      &quot;λ&quot;: 260,
+      &quot;μ&quot;: 261,
+      &quot;ν&quot;: 262,
+      &quot;ξ&quot;: 263,
+      &quot;ο&quot;: 264,
+      &quot;π&quot;: 265,
+      &quot;ρ&quot;: 266,
+      &quot;ς&quot;: 267,
+      &quot;σ&quot;: 268,
+      &quot;τ&quot;: 269,
+      &quot;υ&quot;: 270,
+      &quot;φ&quot;: 271,
+      &quot;ψ&quot;: 272,
+      &quot;ω&quot;: 273,
+      &quot;ό&quot;: 274,
+      &quot;ώ&quot;: 275,
+      &quot;Ϡ&quot;: 276,
+      &quot;Є&quot;: 277,
+      &quot;А&quot;: 278,
+      &quot;Б&quot;: 279,
+      &quot;В&quot;: 280,
+      &quot;Г&quot;: 281,
+      &quot;Д&quot;: 282,
+      &quot;И&quot;: 283,
+      &quot;Й&quot;: 284,
+      &quot;К&quot;: 285,
+      &quot;М&quot;: 286,
+      &quot;Н&quot;: 287,
+      &quot;О&quot;: 288,
+      &quot;П&quot;: 289,
+      &quot;Р&quot;: 290,
+      &quot;С&quot;: 291,
+      &quot;Т&quot;: 292,
+      &quot;Ф&quot;: 293,
+      &quot;Я&quot;: 294,
+      &quot;а&quot;: 295,
+      &quot;б&quot;: 296,
+      &quot;в&quot;: 297,
+      &quot;г&quot;: 298,
+      &quot;д&quot;: 299,
+      &quot;е&quot;: 300,
+      &quot;ж&quot;: 301,
+      &quot;з&quot;: 302,
+      &quot;и&quot;: 303,
+      &quot;й&quot;: 304,
+      &quot;к&quot;: 305,
+      &quot;л&quot;: 306,
+      &quot;м&quot;: 307,
+      &quot;н&quot;: 308,
+      &quot;о&quot;: 309,
+      &quot;п&quot;: 310,
+      &quot;р&quot;: 311,
+      &quot;с&quot;: 312,
+      &quot;т&quot;: 313,
+      &quot;у&quot;: 314,
+      &quot;ф&quot;: 315,
+      &quot;х&quot;: 316,
+      &quot;ц&quot;: 317,
+      &quot;ч&quot;: 318,
+      &quot;ш&quot;: 319,
+      &quot;ъ&quot;: 320,
+      &quot;ы&quot;: 321,
+      &quot;ь&quot;: 322,
+      &quot;я&quot;: 323,
+      &quot;ё&quot;: 324,
+      &quot;є&quot;: 325,
+      &quot;ѕ&quot;: 326,
+      &quot;і&quot;: 327,
+      &quot;ї&quot;: 328,
+      &quot;ѽ&quot;: 329,
+      &quot;҈&quot;: 330,
+      &quot;҉&quot;: 331,
+      &quot;Ғ&quot;: 332,
+      &quot;Җ&quot;: 333,
+      &quot;Ҳ&quot;: 334,
+      &quot;ҳ&quot;: 335,
+      &quot;һ&quot;: 336,
+      &quot;ա&quot;: 337,
+      &quot;խ&quot;: 338,
+      &quot;մ&quot;: 339,
+      &quot;վ&quot;: 340,
+      &quot;֝&quot;: 341,
+      &quot;ִ&quot;: 342,
+      &quot;ַ&quot;: 343,
+      &quot;ָ&quot;: 344,
+      &quot;ּ&quot;: 345,
+      &quot;־&quot;: 346,
+      &quot;ֿ&quot;: 347,
+      &quot;א&quot;: 348,
+      &quot;ב&quot;: 349,
+      &quot;ג&quot;: 350,
+      &quot;ד&quot;: 351,
+      &quot;ה&quot;: 352,
+      &quot;ו&quot;: 353,
+      &quot;ז&quot;: 354,
+      &quot;ח&quot;: 355,
+      &quot;ט&quot;: 356,
+      &quot;י&quot;: 357,
+      &quot;ך&quot;: 358,
+      &quot;כ&quot;: 359,
+      &quot;ל&quot;: 360,
+      &quot;ם&quot;: 361,
+      &quot;מ&quot;: 362,
+      &quot;ן&quot;: 363,
+      &quot;נ&quot;: 364,
+      &quot;ס&quot;: 365,
+      &quot;ע&quot;: 366,
+      &quot;ף&quot;: 367,
+      &quot;פ&quot;: 368,
+      &quot;ץ&quot;: 369,
+      &quot;צ&quot;: 370,
+      &quot;ק&quot;: 371,
+      &quot;ר&quot;: 372,
+      &quot;ש&quot;: 373,
+      &quot;ת&quot;: 374,
+      &quot;װ&quot;: 375,
+      &quot;״&quot;: 376,
+      &quot;׼&quot;: 377,
+      &quot;،&quot;: 378,
+      &quot;؛&quot;: 379,
+      &quot;؟&quot;: 380,
+      &quot;ء&quot;: 381,
+      &quot;آ&quot;: 382,
+      &quot;أ&quot;: 383,
+      &quot;ؤ&quot;: 384,
+      &quot;إ&quot;: 385,
+      &quot;ئ&quot;: 386,
+      &quot;ا&quot;: 387,
+      &quot;ب&quot;: 388,
+      &quot;ة&quot;: 389,
+      &quot;ت&quot;: 390,
+      &quot;ث&quot;: 391,
+      &quot;ج&quot;: 392,
+      &quot;ح&quot;: 393,
+      &quot;خ&quot;: 394,
+      &quot;د&quot;: 395,
+      &quot;ذ&quot;: 396,
+      &quot;ر&quot;: 397,
+      &quot;ز&quot;: 398,
+      &quot;س&quot;: 399,
+      &quot;ش&quot;: 400,
+      &quot;ص&quot;: 401,
+      &quot;ض&quot;: 402,
+      &quot;ط&quot;: 403,
+      &quot;ظ&quot;: 404,
+      &quot;ع&quot;: 405,
+      &quot;غ&quot;: 406,
+      &quot;ػ&quot;: 407,
+      &quot;ف&quot;: 408,
+      &quot;ق&quot;: 409,
+      &quot;ك&quot;: 410,
+      &quot;ل&quot;: 411,
+      &quot;م&quot;: 412,
+      &quot;ن&quot;: 413,
+      &quot;ه&quot;: 414,
+      &quot;و&quot;: 415,
+      &quot;ى&quot;: 416,
+      &quot;ي&quot;: 417,
+      &quot;ٓ&quot;: 418,
+      &quot;ٔ&quot;: 419,
+      &quot;٠&quot;: 420,
+      &quot;١&quot;: 421,
+      &quot;٢&quot;: 422,
+      &quot;٣&quot;: 423,
+      &quot;٤&quot;: 424,
+      &quot;٥&quot;: 425,
+      &quot;٦&quot;: 426,
+      &quot;٧&quot;: 427,
+      &quot;٨&quot;: 428,
+      &quot;٩&quot;: 429,
+      &quot;٪&quot;: 430,
+      &quot;٫&quot;: 431,
+      &quot;٬&quot;: 432,
+      &quot;٭&quot;: 433,
+      &quot;ٱ&quot;: 434,
+      &quot;ٲ&quot;: 435,
+      &quot;ٳ&quot;: 436,
+      &quot;ٴ&quot;: 437,
+      &quot;ٹ&quot;: 438,
+      &quot;ٺ&quot;: 439,
+      &quot;ٻ&quot;: 440,
+      &quot;ټ&quot;: 441,
+      &quot;پ&quot;: 442,
+      &quot;ٿ&quot;: 443,
+      &quot;چ&quot;: 444,
+      &quot;ڈ&quot;: 445,
+      &quot;ڊ&quot;: 446,
+      &quot;ڑ&quot;: 447,
+      &quot;ړ&quot;: 448,
+      &quot;ڔ&quot;: 449,
+      &quot;ڕ&quot;: 450,
+      &quot;ږ&quot;: 451,
+      &quot;ژ&quot;: 452,
+      &quot;ڙ&quot;: 453,
+      &quot;ڛ&quot;: 454,
+      &quot;ڠ&quot;: 455,
+      &quot;ڤ&quot;: 456,
+      &quot;ڦ&quot;: 457,
+      &quot;ڨ&quot;: 458,
+      &quot;ک&quot;: 459,
+      &quot;ڪ&quot;: 460,
+      &quot;ڬ&quot;: 461,
+      &quot;ڭ&quot;: 462,
+      &quot;گ&quot;: 463,
+      &quot;ڲ&quot;: 464,
+      &quot;ڳ&quot;: 465,
+      &quot;ڵ&quot;: 466,
+      &quot;ڶ&quot;: 467,
+      &quot;ڷ&quot;: 468,
+      &quot;ڸ&quot;: 469,
+      &quot;ڹ&quot;: 470,
+      &quot;ں&quot;: 471,
+      &quot;ڼ&quot;: 472,
+      &quot;ڽ&quot;: 473,
+      &quot;ھ&quot;: 474,
+      &quot;ۀ&quot;: 475,
+      &quot;ہ&quot;: 476,
+      &quot;ۂ&quot;: 477,
+      &quot;ۃ&quot;: 478,
+      &quot;ۅ&quot;: 479,
+      &quot;ۆ&quot;: 480,
+      &quot;ۇ&quot;: 481,
+      &quot;ۈ&quot;: 482,
+      &quot;ۉ&quot;: 483,
+      &quot;ۋ&quot;: 484,
+      &quot;ی&quot;: 485,
+      &quot;ێ&quot;: 486,
+      &quot;ې&quot;: 487,
+      &quot;ۑ&quot;: 488,
+      &quot;ے&quot;: 489,
+      &quot;ۓ&quot;: 490,
+      &quot;۔&quot;: 491,
+      &quot;ە&quot;: 492,
+      &quot;ۖ&quot;: 493,
+      &quot;ۗ&quot;: 494,
+      &quot;ۚ&quot;: 495,
+      &quot;ۜ&quot;: 496,
+      &quot;۞&quot;: 497,
+      &quot;ۡ&quot;: 498,
+      &quot;ۣ&quot;: 499,
+      &quot;ۤ&quot;: 500,
+      &quot;ۧ&quot;: 501,
+      &quot;ۨ&quot;: 502,
+      &quot;۩&quot;: 503,
+      &quot;۪&quot;: 504,
+      &quot;۫&quot;: 505,
+      &quot;۰&quot;: 506,
+      &quot;۱&quot;: 507,
+      &quot;۲&quot;: 508,
+      &quot;۳&quot;: 509,
+      &quot;۴&quot;: 510,
+      &quot;۵&quot;: 511,
+      &quot;۶&quot;: 512,
+      &quot;۷&quot;: 513,
+      &quot;۸&quot;: 514,
+      &quot;۹&quot;: 515,
+      &quot;۾&quot;: 516,
+      &quot;ܐ&quot;: 517,
+      &quot;ܓ&quot;: 518,
+      &quot;ܔ&quot;: 519,
+      &quot;ܕ&quot;: 520,
+      &quot;ܘ&quot;: 521,
+      &quot;ܝ&quot;: 522,
+      &quot;ܠ&quot;: 523,
+      &quot;ܡ&quot;: 524,
+      &quot;ܢ&quot;: 525,
+      &quot;ܨ&quot;: 526,
+      &quot;ܪ&quot;: 527,
+      &quot;ܬ&quot;: 528,
+      &quot;ށ&quot;: 529,
+      &quot;ँ&quot;: 530,
+      &quot;ऊ&quot;: 531,
+      &quot;ऋ&quot;: 532,
+      &quot;ख&quot;: 533,
+      &quot;द&quot;: 534,
+      &quot;न&quot;: 535,
+      &quot;र&quot;: 536,
+      &quot;़&quot;: 537,
+      &quot;ा&quot;: 538,
+      &quot;ी&quot;: 539,
+      &quot;ॐ&quot;: 540,
+      &quot;ঔ&quot;: 541,
+      &quot;া&quot;: 542,
+      &quot;ৣ&quot;: 543,
+      &quot;৲&quot;: 544,
+      &quot;৴&quot;: 545,
+      &quot;৵&quot;: 546,
+      &quot;ਿ&quot;: 547,
+      &quot;ੀ&quot;: 548,
+      &quot;ઇ&quot;: 549,
+      &quot;હ&quot;: 550,
+      &quot;ஃ&quot;: 551,
+      &quot;இ&quot;: 552,
+      &quot;ஊ&quot;: 553,
+      &quot;ஐ&quot;: 554,
+      &quot;ஓ&quot;: 555,
+      &quot;ஜ&quot;: 556,
+      &quot;ண&quot;: 557,
+      &quot;ஷ&quot;: 558,
+      &quot;ஹ&quot;: 559,
+      &quot;ಏ&quot;: 560,
+      &quot;ಞ&quot;: 561,
+      &quot;ೋ&quot;: 562,
+      &quot;್&quot;: 563,
+      &quot;്&quot;: 564,
+      &quot;ก&quot;: 565,
+      &quot;ง&quot;: 566,
+      &quot;ฒ&quot;: 567,
+      &quot;ด&quot;: 568,
+      &quot;ท&quot;: 569,
+      &quot;น&quot;: 570,
+      &quot;บ&quot;: 571,
+      &quot;ม&quot;: 572,
+      &quot;ย&quot;: 573,
+      &quot;ร&quot;: 574,
+      &quot;ล&quot;: 57</pre></section><section><h3>06_full_dataset_finetuning/models/CAMeLBERT_Full_Model/tokenizer_config.json</h3><p>SHA-256: <code>2E3451661B3A7FC059AABF2966F157E636079389CB4422F047BEAD5D8914D939</code></p><pre>{
+  &quot;backend&quot;: &quot;tokenizers&quot;,
+  &quot;cls_token&quot;: &quot;[CLS]&quot;,
+  &quot;do_lower_case&quot;: false,
+  &quot;full_tokenizer_file&quot;: null,
+  &quot;is_local&quot;: false,
+  &quot;local_files_only&quot;: false,
+  &quot;mask_token&quot;: &quot;[MASK]&quot;,
+  &quot;model_max_length&quot;: 512,
+  &quot;pad_token&quot;: &quot;[PAD]&quot;,
+  &quot;sep_token&quot;: &quot;[SEP]&quot;,
+  &quot;strip_accents&quot;: null,
+  &quot;tokenize_chinese_chars&quot;: true,
+  &quot;tokenizer_class&quot;: &quot;BertTokenizer&quot;,
+  &quot;unk_token&quot;: &quot;[UNK]&quot;
+}
+</pre></section><section><h3>06_full_dataset_finetuning/models/MARBERTv2_Full_Model/1_Pooling/config.json</h3><p>SHA-256: <code>8759BDF7C77EFC7DF7723F64856A593C8943B71EE38BAF2A88771FBAF78438F9</code></p><pre>{
+    &quot;embedding_dimension&quot;: 768,
+    &quot;pooling_mode&quot;: &quot;mean&quot;,
+    &quot;include_prompt&quot;: true
+}</pre></section><section><h3>06_full_dataset_finetuning/models/MARBERTv2_Full_Model/config.json</h3><p>SHA-256: <code>E2073094CBC4375F41074AE1FD235B3A833F6D9BE1B2B5012F272CEAC4B201E0</code></p><pre>{
+  &quot;add_cross_attention&quot;: false,
+  &quot;architectures&quot;: [
+    &quot;BertModel&quot;
+  ],
+  &quot;attention_probs_dropout_prob&quot;: 0.1,
+  &quot;bos_token_id&quot;: null,
+  &quot;classifier_dropout&quot;: null,
+  &quot;directionality&quot;: &quot;bidi&quot;,
+  &quot;dtype&quot;: &quot;float32&quot;,
+  &quot;eos_token_id&quot;: null,
+  &quot;gradient_checkpointing&quot;: false,
+  &quot;hidden_act&quot;: &quot;gelu&quot;,
+  &quot;hidden_dropout_prob&quot;: 0.1,
+  &quot;hidden_size&quot;: 768,
+  &quot;initializer_range&quot;: 0.02,
+  &quot;intermediate_size&quot;: 3072,
+  &quot;is_decoder&quot;: false,
+  &quot;layer_norm_eps&quot;: 1e-12,
+  &quot;max_position_embeddings&quot;: 512,
+  &quot;model_type&quot;: &quot;bert&quot;,
+  &quot;num_attention_heads&quot;: 12,
+  &quot;num_hidden_layers&quot;: 12,
+  &quot;pad_token_id&quot;: 0,
+  &quot;pooler_fc_size&quot;: 768,
+  &quot;pooler_num_attention_heads&quot;: 12,
+  &quot;pooler_num_fc_layers&quot;: 3,
+  &quot;pooler_size_per_head&quot;: 128,
+  &quot;pooler_type&quot;: &quot;first_token_transform&quot;,
+  &quot;position_embedding_type&quot;: &quot;absolute&quot;,
+  &quot;tie_word_embeddings&quot;: true,
+  &quot;transformers_version&quot;: &quot;5.16.1&quot;,
+  &quot;type_vocab_size&quot;: 2,
+  &quot;use_cache&quot;: false,
+  &quot;vocab_size&quot;: 100000
+}
+</pre></section><section><h3>06_full_dataset_finetuning/models/MARBERTv2_Full_Model/config_sentence_transformers.json</h3><p>SHA-256: <code>4574F8F3A32414CD3C80832D8A682C4E8BDE234DF12996A820FD214B16C32158</code></p><pre>{
+  &quot;__version__&quot;: {
+    &quot;pytorch&quot;: &quot;2.13.0+cu130&quot;,
+    &quot;sentence_transformers&quot;: &quot;6.0.0&quot;,
+    &quot;transformers&quot;: &quot;5.16.1&quot;
+  },
+  &quot;default_prompt_name&quot;: null,
+  &quot;model_type&quot;: &quot;SentenceTransformer&quot;,
+  &quot;prompts&quot;: {
+    &quot;document&quot;: &quot;&quot;,
+    &quot;query&quot;: &quot;&quot;
+  },
+  &quot;similarity_fn_name&quot;: &quot;cosine&quot;
+}</pre></section><section><h3>06_full_dataset_finetuning/models/MARBERTv2_Full_Model/modules.json</h3><p>SHA-256: <code>E4068AAB8A95663636C4C28044A95EAFDB6492387397EC8283D8F8B31078D645</code></p><pre>[
+  {
+    &quot;idx&quot;: 0,
+    &quot;name&quot;: &quot;0&quot;,
+    &quot;path&quot;: &quot;&quot;,
+    &quot;type&quot;: &quot;sentence_transformers.base.modules.transformer.Transformer&quot;
+  },
+  {
+    &quot;idx&quot;: 1,
+    &quot;name&quot;: &quot;1&quot;,
+    &quot;path&quot;: &quot;1_Pooling&quot;,
+    &quot;type&quot;: &quot;sentence_transformers.sentence_transformer.modules.pooling.Pooling&quot;
+  }
+]</pre></section><section><h3>06_full_dataset_finetuning/models/MARBERTv2_Full_Model/sentence_bert_config.json</h3><p>SHA-256: <code>3084164002C0BCA01B0259C5327123803FCE32E660A57FEB93184FFEAD186FC8</code></p><pre>{
+    &quot;transformer_task&quot;: &quot;feature-extraction&quot;,
+    &quot;modality_config&quot;: {
+        &quot;text&quot;: {
+            &quot;method&quot;: &quot;forward&quot;,
+            &quot;method_output_name&quot;: &quot;last_hidden_state&quot;
+        }
+    },
+    &quot;module_output_name&quot;: &quot;token_embeddings&quot;
+}</pre></section><section><h3>06_full_dataset_finetuning/models/MARBERTv2_Full_Model/tokenizer_config.json</h3><p>SHA-256: <code>88DAA728095232BD6B00288F6699456B923396267882822F769F42C89E1C225C</code></p><pre>{
+  &quot;backend&quot;: &quot;tokenizers&quot;,
+  &quot;cls_token&quot;: &quot;[CLS]&quot;,
+  &quot;do_basic_tokenize&quot;: true,
+  &quot;do_lower_case&quot;: true,
+  &quot;is_local&quot;: false,
+  &quot;local_files_only&quot;: false,
+  &quot;mask_token&quot;: &quot;[MASK]&quot;,
+  &quot;model_max_length&quot;: 512,
+  &quot;never_split&quot;: null,
+  &quot;pad_token&quot;: &quot;[PAD]&quot;,
+  &quot;sep_token&quot;: &quot;[SEP]&quot;,
+  &quot;strip_accents&quot;: null,
+  &quot;tokenize_chinese_chars&quot;: true,
+  &quot;tokenizer_class&quot;: &quot;BertTokenizer&quot;,
+  &quot;unk_token&quot;: &quot;[UNK]&quot;
+}
+</pre></section><section><h3>06_full_dataset_finetuning/models/paraphrase-multilingual-MiniLM-L12-v2_Full_Model/1_Pooling/config.json</h3><p>SHA-256: <code>4FEF0A7E8C8EE36E74C0FAD89BAB60ADE72324442D43F559EA219BB7C2580710</code></p><pre>{
+    &quot;embedding_dimension&quot;: 384,
+    &quot;pooling_mode&quot;: &quot;mean&quot;,
+    &quot;include_prompt&quot;: true
+}</pre></section><section><h3>06_full_dataset_finetuning/models/paraphrase-multilingual-MiniLM-L12-v2_Full_Model/config.json</h3><p>SHA-256: <code>EB48E99F90120892987C2DAE9DC8F784388A83A3F7378075FBBB555FFE26A217</code></p><pre>{
+  &quot;add_cross_attention&quot;: false,
+  &quot;architectures&quot;: [
+    &quot;BertModel&quot;
+  ],
+  &quot;attention_probs_dropout_prob&quot;: 0.1,
+  &quot;bos_token_id&quot;: 0,
+  &quot;classifier_dropout&quot;: null,
+  &quot;dtype&quot;: &quot;float32&quot;,
+  &quot;eos_token_id&quot;: 2,
+  &quot;gradient_checkpointing&quot;: false,
+  &quot;hidden_act&quot;: &quot;gelu&quot;,
+  &quot;hidden_dropout_prob&quot;: 0.1,
+  &quot;hidden_size&quot;: 384,
+  &quot;initializer_range&quot;: 0.02,
+  &quot;intermediate_size&quot;: 1536,
+  &quot;is_decoder&quot;: false,
+  &quot;layer_norm_eps&quot;: 1e-12,
+  &quot;max_position_embeddings&quot;: 512,
+  &quot;model_type&quot;: &quot;bert&quot;,
+  &quot;num_attention_heads&quot;: 12,
+  &quot;num_hidden_layers&quot;: 12,
+  &quot;pad_token_id&quot;: 1,
+  &quot;position_embedding_type&quot;: &quot;absolute&quot;,
+  &quot;tie_word_embeddings&quot;: true,
+  &quot;transformers_version&quot;: &quot;5.16.1&quot;,
+  &quot;type_vocab_size&quot;: 2,
+  &quot;use_cache&quot;: false,
+  &quot;vocab_size&quot;: 250037
+}
+</pre></section><section><h3>06_full_dataset_finetuning/models/paraphrase-multilingual-MiniLM-L12-v2_Full_Model/config_sentence_transformers.json</h3><p>SHA-256: <code>4574F8F3A32414CD3C80832D8A682C4E8BDE234DF12996A820FD214B16C32158</code></p><pre>{
+  &quot;__version__&quot;: {
+    &quot;pytorch&quot;: &quot;2.13.0+cu130&quot;,
+    &quot;sentence_transformers&quot;: &quot;6.0.0&quot;,
+    &quot;transformers&quot;: &quot;5.16.1&quot;
+  },
+  &quot;default_prompt_name&quot;: null,
+  &quot;model_type&quot;: &quot;SentenceTransformer&quot;,
+  &quot;prompts&quot;: {
+    &quot;document&quot;: &quot;&quot;,
+    &quot;query&quot;: &quot;&quot;
+  },
+  &quot;similarity_fn_name&quot;: &quot;cosine&quot;
+}</pre></section><section><h3>06_full_dataset_finetuning/models/paraphrase-multilingual-MiniLM-L12-v2_Full_Model/modules.json</h3><p>SHA-256: <code>E4068AAB8A95663636C4C28044A95EAFDB6492387397EC8283D8F8B31078D645</code></p><pre>[
+  {
+    &quot;idx&quot;: 0,
+    &quot;name&quot;: &quot;0&quot;,
+    &quot;path&quot;: &quot;&quot;,
+    &quot;type&quot;: &quot;sentence_transformers.base.modules.transformer.Transformer&quot;
+  },
+  {
+    &quot;idx&quot;: 1,
+    &quot;name&quot;: &quot;1&quot;,
+    &quot;path&quot;: &quot;1_Pooling&quot;,
+    &quot;type&quot;: &quot;sentence_transformers.sentence_transformer.modules.pooling.Pooling&quot;
+  }
+]</pre></section><section><h3>06_full_dataset_finetuning/models/paraphrase-multilingual-MiniLM-L12-v2_Full_Model/sentence_bert_config.json</h3><p>SHA-256: <code>3084164002C0BCA01B0259C5327123803FCE32E660A57FEB93184FFEAD186FC8</code></p><pre>{
+    &quot;transformer_task&quot;: &quot;feature-extraction&quot;,
+    &quot;modality_config&quot;: {
+        &quot;text&quot;: {
+            &quot;method&quot;: &quot;forward&quot;,
+            &quot;method_output_name&quot;: &quot;last_hidden_state&quot;
+        }
+    },
+    &quot;module_output_name&quot;: &quot;token_embeddings&quot;
+}</pre></section><section><h3>06_full_dataset_finetuning/models/paraphrase-multilingual-MiniLM-L12-v2_Full_Model/tokenizer_config.json</h3><p>SHA-256: <code>52202D0E04FF99028314E47C17F34B434D464D5329439874CAEDAEFA9408E047</code></p><pre>{
+  &quot;backend&quot;: &quot;tokenizers&quot;,
+  &quot;bos_token&quot;: &quot;&lt;s&gt;&quot;,
+  &quot;cls_token&quot;: &quot;&lt;s&gt;&quot;,
+  &quot;do_lower_case&quot;: true,
+  &quot;eos_token&quot;: &quot;&lt;/s&gt;&quot;,
+  &quot;is_local&quot;: false,
+  &quot;local_files_only&quot;: false,
+  &quot;mask_token&quot;: &quot;&lt;mask&gt;&quot;,
+  &quot;max_length&quot;: 128,
+  &quot;model_max_length&quot;: 128,
+  &quot;pad_to_multiple_of&quot;: null,
+  &quot;pad_token&quot;: &quot;&lt;pad&gt;&quot;,
+  &quot;pad_token_type_id&quot;: 0,
+  &quot;padding_side&quot;: &quot;right&quot;,
+  &quot;sep_token&quot;: &quot;&lt;/s&gt;&quot;,
+  &quot;stride&quot;: 0,
+  &quot;strip_accents&quot;: null,
+  &quot;tokenize_chinese_chars&quot;: true,
+  &quot;tokenizer_class&quot;: &quot;TokenizersBackend&quot;,
+  &quot;truncation_side&quot;: &quot;right&quot;,
+  &quot;truncation_strategy&quot;: &quot;longest_first&quot;,
+  &quot;unk_token&quot;: &quot;&lt;unk&gt;&quot;
+}
+</pre></section>
+</body></html>

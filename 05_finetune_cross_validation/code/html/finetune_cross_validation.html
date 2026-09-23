@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="source-sha256" content="7B894E1179FDA26215C9FEC726405AA2AD1DEABF63BA6884EED6EAC172F3F355"><meta name="captured-output-manifest" content="[{&quot;bytes&quot;: 347, &quot;path&quot;: &quot;05_finetune_cross_validation/fold_artifacts/fold_01_manifest.json&quot;, &quot;sha256&quot;: &quot;CA36EA923AC4BC4FBDE6D98CB10B48D2F0D4511E774C6ACD3DA0278AEA6CC774&quot;}, {&quot;bytes&quot;: 347, &quot;path&quot;: &quot;05_finetune_cross_validation/fold_artifacts/fold_02_manifest.json&quot;, &quot;sha256&quot;: &quot;91A1EC3A80B509813A4D7A8BC5285709431923F8D9CA787BA2EE4E9A3A7B60E5&quot;}, {&quot;bytes&quot;: 347, &quot;path&quot;: &quot;05_finetune_cross_validation/fold_artifacts/fold_03_manifest.json&quot;, &quot;sha256&quot;: &quot;97F1888809939918E4A8495AE55A0B84287CCCD208D879900E0FCF13E8FC56C1&quot;}, {&quot;bytes&quot;: 347, &quot;path&quot;: &quot;05_finetune_cross_validation/fold_artifacts/fold_04_manifest.json&quot;, &quot;sha256&quot;: &quot;4862B1E93A7527B6259DC0DDB9E72EC60194F61ADC891976D45E2E888F991064&quot;}, {&quot;bytes&quot;: 347, &quot;path&quot;: &quot;05_finetune_cross_validation/fold_artifacts/fold_05_manifest.json&quot;, &quot;sha256&quot;: &quot;2FDE1E8E2C81D267398087F909AE8344D21A7BCA3BDFE8FD05A1984BFFC1728F&quot;}, {&quot;bytes&quot;: 347, &quot;path&quot;: &quot;05_finetune_cross_validation/fold_artifacts/fold_06_manifest.json&quot;, &quot;sha256&quot;: &quot;51A9D1B915606E31DC28E17FAF38032BA53A33DC302BA8D2673467AB13EB5067&quot;}, {&quot;bytes&quot;: 347, &quot;path&quot;: &quot;05_finetune_cross_validation/fold_artifacts/fold_07_manifest.json&quot;, &quot;sha256&quot;: &quot;CDB95D9972DE6F765D371A599B62B631DC091A686F70E4A98553BD1C86069BB8&quot;}, {&quot;bytes&quot;: 347, &quot;path&quot;: &quot;05_finetune_cross_validation/fold_artifacts/fold_08_manifest.json&quot;, &quot;sha256&quot;: &quot;072B0E22D53A528DF9D8E99CE9B11E30AA7FA9135DEA370D56CA0A403EA28B93&quot;}, {&quot;bytes&quot;: 347, &quot;path&quot;: &quot;05_finetune_cross_validation/fold_artifacts/fold_09_manifest.json&quot;, &quot;sha256&quot;: &quot;4014C0D4661349D524527B5184B30E367C03ABEF6DD2D07C2CFA02424A44CCBE&quot;}, {&quot;bytes&quot;: 348, &quot;path&quot;: &quot;05_finetune_cross_validation/fold_artifacts/fold_10_manifest.json&quot;, &quot;sha256&quot;: &quot;020B3A6E6782DC760BE7D8517E4A75B684FC3277259DF6F5B2808EBE1F5C96E1&quot;}, {&quot;bytes&quot;: 177, &quot;path&quot;: &quot;05_finetune_cross_validation/fold_artifacts/fullft_fold_01_CAMeLBERT_metrics.csv&quot;, &quot;sha256&quot;: &quot;DCFE0F57EC770CCCE9DC749FBDF329F273B141916103A97B5A264249070DC9B8&quot;}, {&quot;bytes&quot;: 175, &quot;path&quot;: &quot;05_finetune_cross_validation/fold_artifacts/fullft_fold_01_MARBERT_metrics.csv&quot;, &quot;sha256&quot;: &quot;45A951FE717FABBB586290626D5493778AD5CCD18DB07405AC5FBECFDA7503AF&quot;}, {&quot;bytes&quot;: 178, &quot;path&quot;: &quot;05_finetune_cross_validation/fold_artifacts/fullft_fold_01_Paraphrase_metrics.csv&quot;, &quot;sha256&quot;: &quot;4470D8AD53C931A933020B9E28319221607739834C2B6D485C5E3E0594A0EB1F&quot;}, {&quot;bytes&quot;: 175, &quot;path&quot;: &quot;05_finetune_cross_validation/fold_artifacts/fullft_fold_02_CAMeLBERT_metrics.csv&quot;, &quot;sha256&quot;: &quot;6C6D52B1F4CB61A33E7F53630F1D89094CC0A45B3AD5612FFD230B7CC6CB8373&quot;}, {&quot;bytes&quot;: 174, &quot;path&quot;: &quot;05_finetune_cross_validation/fold_artifacts/fullft_fold_02_MARBERT_metrics.csv&quot;, &quot;sha256&quot;: &quot;AB7E82D9E50BF27A9F8FA7B281BFC44C3E24573EC162E534DA918B7F3AD4ACDD&quot;}, {&quot;bytes&quot;: 171, &quot;path&quot;: &quot;05_finetune_cross_validation/fold_artifacts/fullft_fold_02_Paraphrase_metrics.csv&quot;, &quot;sha256&quot;: &quot;1F1CFE93BCEF051E8D2D448CCA3D945BA928DD5A18B55A04DF296320D4EFFAF9&quot;}, {&quot;bytes&quot;: 177, &quot;path&quot;: &quot;05_finetune_cross_validation/fold_artifacts/fullft_fold_03_CAMeLBERT_metrics.csv&quot;, &quot;sha256&quot;: &quot;86AAA77B632AE9C8A681D47C49B4BFA99F67F3102919F95C0020D316A98CC540&quot;}, {&quot;bytes&quot;: 173, &quot;path&quot;: &quot;05_finetune_cross_validation/fold_artifacts/fullft_fold_03_MARBERT_metrics.csv&quot;, &quot;sha256&quot;: &quot;D5F3629AD81AC56B32A61D1992F25C5E423AD2838C3AE0FC50CEA1E8C2709339&quot;}, {&quot;bytes&quot;: 178, &quot;path&quot;: &quot;05_finetune_cross_validation/fold_artifacts/fullft_fold_03_Paraphrase_metrics.csv&quot;, &quot;sha256&quot;: &quot;F737AAF5712C87DD168E77CAA581E2B4C20EEEB197F2935E89AA1C4608C9C18F&quot;}, {&quot;bytes&quot;: 170, &quot;path&quot;: &quot;05_finetune_cross_validation/fold_artifacts/fullft_fold_04_CAMeLBERT_metrics.csv&quot;, &quot;sha256&quot;: &quot;7656B2E68BEBA4AADEEB9E5AD4FF4E212F0166AFB2268169CBD8EB4A405F18FA&quot;}, {&quot;bytes&quot;: 174, &quot;path&quot;: &quot;05_finetune_cross_validation/fold_artifacts/fullft_fold_04_MARBERT_metrics.csv&quot;, &quot;sha256&quot;: &quot;8ED9D7227DA4B58F3DDD273325AAD3BCB5CCE04DF0F7FF7C1EC3C8E5909B7BB7&quot;}, {&quot;bytes&quot;: 172, &quot;path&quot;: &quot;05_finetune_cross_validation/fold_artifacts/fullft_fold_04_Paraphrase_metrics.csv&quot;, &quot;sha256&quot;: &quot;4182C5AF77C05163A153CB392D7DA82AB78A194B0A0BD965D24BE7C296F9AE6D&quot;}, {&quot;bytes&quot;: 176, &quot;path&quot;: &quot;05_finetune_cross_validation/fold_artifacts/fullft_fold_05_CAMeLBERT_metrics.csv&quot;, &quot;sha256&quot;: &quot;CF49A6D7FECC4A68D87B95EC279E74AB564F89E10D1A31F4BD1E6806F183D52D&quot;}, {&quot;bytes&quot;: 175, &quot;path&quot;: &quot;05_finetune_cross_validation/fold_artifacts/fullft_fold_05_MARBERT_metrics.csv&quot;, &quot;sha256&quot;: &quot;198B469A453E013550252D50B28BB30248BFD2239304C9E0B7D8B8E6DCD4A9D2&quot;}, {&quot;bytes&quot;: 178, &quot;path&quot;: &quot;05_finetune_cross_validation/fold_artifacts/fullft_fold_05_Paraphrase_metrics.csv&quot;, &quot;sha256&quot;: &quot;2621DC126B4422698B88AA4407009C49254722357CA98B7E807EBA7546D83E9B&quot;}]">
+<title>05_finetune_cross_validation/code/python/finetune_cross_validation.py</title>
+<style>body{font:15px/1.55 system-ui,sans-serif;max-width:1200px;margin:2rem auto;padding:0 1.2rem;color:#172033}h1,h2,h3{color:#103c5a}pre{direction:ltr;text-align:left;background:#0d1726;color:#e8eef7;padding:1rem;border-radius:8px;overflow:auto;white-space:pre}code{font-family:ui-monospace,Consolas,monospace}table{border-collapse:collapse;font-size:12px}th,td{padding:.35rem .5rem;border:1px solid #ccd5df;text-align:left;max-width:360px;overflow-wrap:anywhere}th{background:#e9f1f7}.table-wrap{overflow:auto}img{max-width:100%;height:auto;border:1px solid #ccd5df}</style></head>
+<body><h1>finetune_cross_validation.py</h1><p>Canonical Python source: <code>05_finetune_cross_validation/code/python/finetune_cross_validation.py</code><br>SHA-256: <code>7B894E1179FDA26215C9FEC726405AA2AD1DEABF63BA6884EED6EAC172F3F355</code></p>
+<h2>Python code</h2><pre><code>&quot;&quot;&quot;Reproduce the paper&#x27;s ten-fold SentenceTransformer fine-tuning and 1-NN evaluation.&quot;&quot;&quot;
+
+from __future__ import annotations
+
+import argparse
+import json
+import shutil
+from pathlib import Path
+
+import numpy as np
+import pandas as pd
+import torch
+from datasets import Dataset
+from sentence_transformers import SentenceTransformer, util
+from sentence_transformers.losses import BatchAllTripletLoss
+from sentence_transformers.trainer import SentenceTransformerTrainer
+from sentence_transformers.training_args import SentenceTransformerTrainingArguments
+from sklearn.metrics import accuracy_score, f1_score, precision_score, recall_score
+from sklearn.model_selection import StratifiedKFold
+
+
+LABEL_TO_ID = {&quot;non-security&quot;: 0, &quot;security&quot;: 1}
+OUTPUT_NAMES = {
+    &quot;camelbert&quot;: &quot;CAMeLBERT&quot;,
+    &quot;marbertv2&quot;: &quot;MARBERTv2&quot;,
+    &quot;paraphrase&quot;: &quot;paraphrase-multilingual-MiniLM-L12-v2&quot;,
+}
+
+
+def predict_one_nearest_neighbor(
+    model: SentenceTransformer,
+    reference_texts: list[str],
+    reference_labels: np.ndarray,
+    query_texts: list[str],
+) -&gt; np.ndarray:
+    &quot;&quot;&quot;Assign each query the label of its most similar training-fold review.&quot;&quot;&quot;
+    reference_embeddings = model.encode(
+        reference_texts, convert_to_tensor=True, show_progress_bar=False
+    )
+    query_embeddings = model.encode(
+        query_texts, convert_to_tensor=True, show_progress_bar=False
+    )
+    matches = util.semantic_search(query_embeddings, reference_embeddings, top_k=1)
+    indices = [match[0][&quot;corpus_id&quot;] for match in matches]
+    return np.asarray(reference_labels, dtype=int)[indices]
+
+
+def metric_row(truth: np.ndarray, prediction: np.ndarray) -&gt; dict[str, float]:
+    return {
+        &quot;accuracy&quot;: accuracy_score(truth, prediction),
+        &quot;precision&quot;: precision_score(truth, prediction, zero_division=0),
+        &quot;recall&quot;: recall_score(truth, prediction, zero_division=0),
+        &quot;f1&quot;: f1_score(truth, prediction, zero_division=0),
+    }
+
+
+def run(training_csv: Path, config_path: Path, output: Path) -&gt; None:
+    config = json.loads(config_path.read_text(encoding=&quot;utf-8&quot;))
+    frame = pd.read_csv(training_csv).reset_index(drop=True)
+    required = {&quot;content&quot;, &quot;Keyword&quot;, &quot;store&quot;, &quot;app_name&quot;, &quot;review_id&quot;}
+    if missing := required - set(frame.columns):
+        raise ValueError(f&quot;missing columns: {sorted(missing)}&quot;)
+    frame[&quot;row_id&quot;] = np.arange(len(frame))
+    labels = frame[&quot;Keyword&quot;].map(LABEL_TO_ID)
+    if labels.isna().any():
+        raise ValueError(&quot;Keyword contains an unsupported label&quot;)
+    labels = labels.astype(int).to_numpy()
+    fine_tuning = config[&quot;final_fine_tuning&quot;]
+    seed = int(fine_tuning.get(&quot;seed&quot;, config[&quot;seed&quot;]))
+    splitter = StratifiedKFold(n_splits=10, shuffle=True, random_state=seed)
+    output.mkdir(parents=True, exist_ok=True)
+    metadata = [
+        column
+        for column in (
+            &quot;row_id&quot;, &quot;review_id&quot;, &quot;content&quot;, &quot;Keyword&quot;, &quot;store&quot;, &quot;app_name&quot;,
+            &quot;source_file&quot;, &quot;source_row_number&quot;, &quot;iteration_added&quot;
+        )
+        if column in frame.columns
+    ]
+
+    for model_key, model_name in config[&quot;transformers&quot;].items():
+        model_output = output / OUTPUT_NAMES[model_key]
+        model_output.mkdir(parents=True, exist_ok=True)
+        all_predictions = []
+        fold_metrics = []
+        for fold, (train_index, test_index) in enumerate(
+            splitter.split(frame, labels), start=1
+        ):
+            torch.manual_seed(seed)
+            train_frame = frame.iloc[train_index]
+            test_frame = frame.iloc[test_index]
+            model = SentenceTransformer(model_name)
+            model.max_seq_length = min(
+                model.max_seq_length, int(fine_tuning.get(&quot;max_length&quot;, model.max_seq_length))
+            )
+            train_dataset = Dataset.from_dict({
+                &quot;sentence&quot;: train_frame[&quot;content&quot;].astype(str).tolist(),
+                &quot;label&quot;: labels[train_index].tolist(),
+            })
+            temporary = model_output / f&quot;fold_{fold:02d}_training&quot;
+            arguments = SentenceTransformerTrainingArguments(
+                output_dir=str(temporary),
+                num_train_epochs=int(fine_tuning[&quot;epochs&quot;]),
+                per_device_train_batch_size=int(fine_tuning[&quot;batch_size&quot;]),
+                warmup_ratio=float(fine_tuning[&quot;warmup_ratio&quot;]),
+                learning_rate=float(fine_tuning[&quot;learning_rate&quot;]),
+                lr_scheduler_type=str(fine_tuning[&quot;scheduler&quot;]),
+                fp16=torch.cuda.is_available(),
+                save_strategy=&quot;no&quot;,
+                seed=seed,
+                report_to=[],
+            )
+            trainer = SentenceTransformerTrainer(
+                model=model,
+                args=arguments,
+                train_dataset=train_dataset,
+                loss=BatchAllTripletLoss(model=model),
+            )
+            trainer.train()
+            predicted = predict_one_nearest_neighbor(
+                model,
+                train_frame[&quot;content&quot;].astype(str).tolist(),
+                labels[train_index],
+                test_frame[&quot;content&quot;].astype(str).tolist(),
+            )
+            truth = labels[test_index]
+            fold_metrics.append({
+                &quot;model&quot;: model_key,
+                &quot;fold&quot;: fold,
+                **metric_row(truth, predicted),
+            })
+            prediction_frame = test_frame[metadata].copy()
+            prediction_frame[&quot;fold&quot;] = fold
+            prediction_frame[&quot;prediction&quot;] = np.where(
+                predicted == 1, &quot;security&quot;, &quot;non-security&quot;
+            )
+            all_predictions.append(prediction_frame)
+            shutil.rmtree(temporary, ignore_errors=True)
+
+        predictions = pd.concat(all_predictions).sort_values(&quot;row_id&quot;)
+        if len(predictions) != len(frame) or predictions[&quot;row_id&quot;].nunique() != len(frame):
+            raise AssertionError(&quot;each row must have exactly one out-of-fold prediction&quot;)
+        predictions.to_csv(
+            model_output / &quot;oof_predictions.csv&quot;, index=False, encoding=&quot;utf-8-sig&quot;
+        )
+        pd.DataFrame(fold_metrics).to_csv(
+            model_output / &quot;fold_metrics.csv&quot;, index=False, encoding=&quot;utf-8-sig&quot;
+        )
+
+
+def main() -&gt; None:
+    parser = argparse.ArgumentParser()
+    parser.add_argument(&quot;training_csv&quot;, type=Path)
+    parser.add_argument(&quot;config&quot;, type=Path)
+    parser.add_argument(&quot;output&quot;, type=Path)
+    args = parser.parse_args()
+    run(args.training_csv, args.config, args.output)
+
+
+if __name__ == &quot;__main__&quot;:
+    main()
+</code></pre>
+<h2>Verified captured outputs (not re-executed)</h2><section><h3>05_finetune_cross_validation/fold_artifacts/fold_01_manifest.json</h3><p>SHA-256: <code>CA36EA923AC4BC4FBDE6D98CB10B48D2F0D4511E774C6ACD3DA0278AEA6CC774</code></p><pre>{
+  &quot;status&quot;: &quot;complete&quot;,
+  &quot;fold&quot;: 1,
+  &quot;seed&quot;: 20260823,
+  &quot;rerun_paraphrase_only&quot;: true,
+  &quot;splitter&quot;: &quot;StratifiedKFold&quot;,
+  &quot;n_splits&quot;: 10,
+  &quot;full_finetune&quot;: {
+    &quot;loss&quot;: &quot;BatchAllTripletLoss&quot;,
+    &quot;epochs&quot;: 10,
+    &quot;batch_size&quot;: 128,
+    &quot;learning_rate&quot;: 2e-05,
+    &quot;warmup_ratio&quot;: 0.1,
+    &quot;max_length&quot;: 192,
+    &quot;fold_seed&quot;: 20260824
+  }
+}</pre></section><section><h3>05_finetune_cross_validation/fold_artifacts/fold_02_manifest.json</h3><p>SHA-256: <code>91A1EC3A80B509813A4D7A8BC5285709431923F8D9CA787BA2EE4E9A3A7B60E5</code></p><pre>{
+  &quot;status&quot;: &quot;complete&quot;,
+  &quot;fold&quot;: 2,
+  &quot;seed&quot;: 20260823,
+  &quot;rerun_paraphrase_only&quot;: true,
+  &quot;splitter&quot;: &quot;StratifiedKFold&quot;,
+  &quot;n_splits&quot;: 10,
+  &quot;full_finetune&quot;: {
+    &quot;loss&quot;: &quot;BatchAllTripletLoss&quot;,
+    &quot;epochs&quot;: 10,
+    &quot;batch_size&quot;: 128,
+    &quot;learning_rate&quot;: 2e-05,
+    &quot;warmup_ratio&quot;: 0.1,
+    &quot;max_length&quot;: 192,
+    &quot;fold_seed&quot;: 20260825
+  }
+}</pre></section><section><h3>05_finetune_cross_validation/fold_artifacts/fold_03_manifest.json</h3><p>SHA-256: <code>97F1888809939918E4A8495AE55A0B84287CCCD208D879900E0FCF13E8FC56C1</code></p><pre>{
+  &quot;status&quot;: &quot;complete&quot;,
+  &quot;fold&quot;: 3,
+  &quot;seed&quot;: 20260823,
+  &quot;rerun_paraphrase_only&quot;: true,
+  &quot;splitter&quot;: &quot;StratifiedKFold&quot;,
+  &quot;n_splits&quot;: 10,
+  &quot;full_finetune&quot;: {
+    &quot;loss&quot;: &quot;BatchAllTripletLoss&quot;,
+    &quot;epochs&quot;: 10,
+    &quot;batch_size&quot;: 128,
+    &quot;learning_rate&quot;: 2e-05,
+    &quot;warmup_ratio&quot;: 0.1,
+    &quot;max_length&quot;: 192,
+    &quot;fold_seed&quot;: 20260826
+  }
+}</pre></section><section><h3>05_finetune_cross_validation/fold_artifacts/fold_04_manifest.json</h3><p>SHA-256: <code>4862B1E93A7527B6259DC0DDB9E72EC60194F61ADC891976D45E2E888F991064</code></p><pre>{
+  &quot;status&quot;: &quot;complete&quot;,
+  &quot;fold&quot;: 4,
+  &quot;seed&quot;: 20260823,
+  &quot;rerun_paraphrase_only&quot;: true,
+  &quot;splitter&quot;: &quot;StratifiedKFold&quot;,
+  &quot;n_splits&quot;: 10,
+  &quot;full_finetune&quot;: {
+    &quot;loss&quot;: &quot;BatchAllTripletLoss&quot;,
+    &quot;epochs&quot;: 10,
+    &quot;batch_size&quot;: 128,
+    &quot;learning_rate&quot;: 2e-05,
+    &quot;warmup_ratio&quot;: 0.1,
+    &quot;max_length&quot;: 192,
+    &quot;fold_seed&quot;: 20260827
+  }
+}</pre></section><section><h3>05_finetune_cross_validation/fold_artifacts/fold_05_manifest.json</h3><p>SHA-256: <code>2FDE1E8E2C81D267398087F909AE8344D21A7BCA3BDFE8FD05A1984BFFC1728F</code></p><pre>{
+  &quot;status&quot;: &quot;complete&quot;,
+  &quot;fold&quot;: 5,
+  &quot;seed&quot;: 20260823,
+  &quot;rerun_paraphrase_only&quot;: true,
+  &quot;splitter&quot;: &quot;StratifiedKFold&quot;,
+  &quot;n_splits&quot;: 10,
+  &quot;full_finetune&quot;: {
+    &quot;loss&quot;: &quot;BatchAllTripletLoss&quot;,
+    &quot;epochs&quot;: 10,
+    &quot;batch_size&quot;: 128,
+    &quot;learning_rate&quot;: 2e-05,
+    &quot;warmup_ratio&quot;: 0.1,
+    &quot;max_length&quot;: 192,
+    &quot;fold_seed&quot;: 20260828
+  }
+}</pre></section><section><h3>05_finetune_cross_validation/fold_artifacts/fold_06_manifest.json</h3><p>SHA-256: <code>51A9D1B915606E31DC28E17FAF38032BA53A33DC302BA8D2673467AB13EB5067</code></p><pre>{
+  &quot;status&quot;: &quot;complete&quot;,
+  &quot;fold&quot;: 6,
+  &quot;seed&quot;: 20260823,
+  &quot;rerun_paraphrase_only&quot;: true,
+  &quot;splitter&quot;: &quot;StratifiedKFold&quot;,
+  &quot;n_splits&quot;: 10,
+  &quot;full_finetune&quot;: {
+    &quot;loss&quot;: &quot;BatchAllTripletLoss&quot;,
+    &quot;epochs&quot;: 10,
+    &quot;batch_size&quot;: 128,
+    &quot;learning_rate&quot;: 2e-05,
+    &quot;warmup_ratio&quot;: 0.1,
+    &quot;max_length&quot;: 192,
+    &quot;fold_seed&quot;: 20260829
+  }
+}</pre></section><section><h3>05_finetune_cross_validation/fold_artifacts/fold_07_manifest.json</h3><p>SHA-256: <code>CDB95D9972DE6F765D371A599B62B631DC091A686F70E4A98553BD1C86069BB8</code></p><pre>{
+  &quot;status&quot;: &quot;complete&quot;,
+  &quot;fold&quot;: 7,
+  &quot;seed&quot;: 20260823,
+  &quot;rerun_paraphrase_only&quot;: true,
+  &quot;splitter&quot;: &quot;StratifiedKFold&quot;,
+  &quot;n_splits&quot;: 10,
+  &quot;full_finetune&quot;: {
+    &quot;loss&quot;: &quot;BatchAllTripletLoss&quot;,
+    &quot;epochs&quot;: 10,
+    &quot;batch_size&quot;: 128,
+    &quot;learning_rate&quot;: 2e-05,
+    &quot;warmup_ratio&quot;: 0.1,
+    &quot;max_length&quot;: 192,
+    &quot;fold_seed&quot;: 20260830
+  }
+}</pre></section><section><h3>05_finetune_cross_validation/fold_artifacts/fold_08_manifest.json</h3><p>SHA-256: <code>072B0E22D53A528DF9D8E99CE9B11E30AA7FA9135DEA370D56CA0A403EA28B93</code></p><pre>{
+  &quot;status&quot;: &quot;complete&quot;,
+  &quot;fold&quot;: 8,
+  &quot;seed&quot;: 20260823,
+  &quot;rerun_paraphrase_only&quot;: true,
+  &quot;splitter&quot;: &quot;StratifiedKFold&quot;,
+  &quot;n_splits&quot;: 10,
+  &quot;full_finetune&quot;: {
+    &quot;loss&quot;: &quot;BatchAllTripletLoss&quot;,
+    &quot;epochs&quot;: 10,
+    &quot;batch_size&quot;: 128,
+    &quot;learning_rate&quot;: 2e-05,
+    &quot;warmup_ratio&quot;: 0.1,
+    &quot;max_length&quot;: 192,
+    &quot;fold_seed&quot;: 20260831
+  }
+}</pre></section><section><h3>05_finetune_cross_validation/fold_artifacts/fold_09_manifest.json</h3><p>SHA-256: <code>4014C0D4661349D524527B5184B30E367C03ABEF6DD2D07C2CFA02424A44CCBE</code></p><pre>{
+  &quot;status&quot;: &quot;complete&quot;,
+  &quot;fold&quot;: 9,
+  &quot;seed&quot;: 20260823,
+  &quot;rerun_paraphrase_only&quot;: true,
+  &quot;splitter&quot;: &quot;StratifiedKFold&quot;,
+  &quot;n_splits&quot;: 10,
+  &quot;full_finetune&quot;: {
+    &quot;loss&quot;: &quot;BatchAllTripletLoss&quot;,
+    &quot;epochs&quot;: 10,
+    &quot;batch_size&quot;: 128,
+    &quot;learning_rate&quot;: 2e-05,
+    &quot;warmup_ratio&quot;: 0.1,
+    &quot;max_length&quot;: 192,
+    &quot;fold_seed&quot;: 20260832
+  }
+}</pre></section><section><h3>05_finetune_cross_validation/fold_artifacts/fold_10_manifest.json</h3><p>SHA-256: <code>020B3A6E6782DC760BE7D8517E4A75B684FC3277259DF6F5B2808EBE1F5C96E1</code></p><pre>{
+  &quot;status&quot;: &quot;complete&quot;,
+  &quot;fold&quot;: 10,
+  &quot;seed&quot;: 20260823,
+  &quot;rerun_paraphrase_only&quot;: true,
+  &quot;splitter&quot;: &quot;StratifiedKFold&quot;,
+  &quot;n_splits&quot;: 10,
+  &quot;full_finetune&quot;: {
+    &quot;loss&quot;: &quot;BatchAllTripletLoss&quot;,
+    &quot;epochs&quot;: 10,
+    &quot;batch_size&quot;: 128,
+    &quot;learning_rate&quot;: 2e-05,
+    &quot;warmup_ratio&quot;: 0.1,
+    &quot;max_length&quot;: 192,
+    &quot;fold_seed&quot;: 20260833
+  }
+}</pre></section><section><h3>05_finetune_cross_validation/fold_artifacts/fullft_fold_01_CAMeLBERT_metrics.csv</h3><p>SHA-256: <code>DCFE0F57EC770CCCE9DC749FBDF329F273B141916103A97B5A264249070DC9B8</code></p><div class='table-wrap'><table><thead><tr><th>fold</th><th>pipeline</th><th>accuracy</th><th>precision</th><th>recall</th><th>f1</th><th>elapsed_minutes</th></tr></thead><tbody><tr><td>1</td><td>Fine-Tuned CAMeLBERT</td><td>0.9530075187969925</td><td>0.9533214533214533</td><td>0.9530075187969924</td><td>0.9529993815708101</td><td>1.7055414090499998</td></tr></tbody></table></div></section><section><h3>05_finetune_cross_validation/fold_artifacts/fullft_fold_01_MARBERT_metrics.csv</h3><p>SHA-256: <code>45A951FE717FABBB586290626D5493778AD5CCD18DB07405AC5FBECFDA7503AF</code></p><div class='table-wrap'><table><thead><tr><th>fold</th><th>pipeline</th><th>accuracy</th><th>precision</th><th>recall</th><th>f1</th><th>elapsed_minutes</th></tr></thead><tbody><tr><td>1</td><td>Fine-Tuned MARBERT</td><td>0.9605263157894737</td><td>0.9613152120053797</td><td>0.9605263157894737</td><td>0.9605094325616907</td><td>1.6324814373833334</td></tr></tbody></table></div></section><section><h3>05_finetune_cross_validation/fold_artifacts/fullft_fold_01_Paraphrase_metrics.csv</h3><p>SHA-256: <code>4470D8AD53C931A933020B9E28319221607739834C2B6D485C5E3E0594A0EB1F</code></p><div class='table-wrap'><table><thead><tr><th>fold</th><th>pipeline</th><th>accuracy</th><th>precision</th><th>recall</th><th>f1</th><th>elapsed_minutes</th></tr></thead><tbody><tr><td>1</td><td>Fine-Tuned Paraphrase</td><td>0.9445488721804511</td><td>0.9445881434210015</td><td>0.9445488721804511</td><td>0.9445476476298749</td><td>1.0998547474333333</td></tr></tbody></table></div></section><section><h3>05_finetune_cross_validation/fold_artifacts/fullft_fold_02_CAMeLBERT_metrics.csv</h3><p>SHA-256: <code>6C6D52B1F4CB61A33E7F53630F1D89094CC0A45B3AD5612FFD230B7CC6CB8373</code></p><div class='table-wrap'><table><thead><tr><th>fold</th><th>pipeline</th><th>accuracy</th><th>precision</th><th>recall</th><th>f1</th><th>elapsed_minutes</th></tr></thead><tbody><tr><td>2</td><td>Fine-Tuned CAMeLBERT</td><td>0.956766917293233</td><td>0.9574133831521738</td><td>0.9567669172932332</td><td>0.956751636481882</td><td>1.5591876378499998</td></tr></tbody></table></div></section><section><h3>05_finetune_cross_validation/fold_artifacts/fullft_fold_02_MARBERT_metrics.csv</h3><p>SHA-256: <code>AB7E82D9E50BF27A9F8FA7B281BFC44C3E24573EC162E534DA918B7F3AD4ACDD</code></p><div class='table-wrap'><table><thead><tr><th>fold</th><th>pipeline</th><th>accuracy</th><th>precision</th><th>recall</th><th>f1</th><th>elapsed_minutes</th></tr></thead><tbody><tr><td>2</td><td>Fine-Tuned MARBERT</td><td>0.9520676691729323</td><td>0.952107604620511</td><td>0.9520676691729323</td><td>0.9520666106631122</td><td>1.3900856008333335</td></tr></tbody></table></div></section><section><h3>05_finetune_cross_validation/fold_artifacts/fullft_fold_02_Paraphrase_metrics.csv</h3><p>SHA-256: <code>1F1CFE93BCEF051E8D2D448CCA3D945BA928DD5A18B55A04DF296320D4EFFAF9</code></p><div class='table-wrap'><table><thead><tr><th>fold</th><th>pipeline</th><th>accuracy</th><th>precision</th><th>recall</th><th>f1</th><th>elapsed_minutes</th></tr></thead><tbody><tr><td>2</td><td>Fine-Tuned Paraphrase</td><td>0.9520676691729323</td><td>0.9526450225179808</td><td>0.9520676691729324</td><td>0.9520523797532108</td><td>1.077436538</td></tr></tbody></table></div></section><section><h3>05_finetune_cross_validation/fold_artifacts/fullft_fold_03_CAMeLBERT_metrics.csv</h3><p>SHA-256: <code>86AAA77B632AE9C8A681D47C49B4BFA99F67F3102919F95C0020D316A98CC540</code></p><div class='table-wrap'><table><thead><tr><th>fold</th><th>pipeline</th><th>accuracy</th><th>precision</th><th>recall</th><th>f1</th><th>elapsed_minutes</th></tr></thead><tbody><tr><td>3</td><td>Fine-Tuned CAMeLBERT</td><td>0.9623706491063029</td><td>0.9624693735926015</td><td>0.9623776956515583</td><td>0.9623690172755593</td><td>1.4806332708666665</td></tr></tbody></table></div></section><section><h3>05_finetune_cross_validation/fold_artifacts/fullft_fold_03_MARBERT_metrics.csv</h3><p>SHA-256: <code>D5F3629AD81AC56B32A61D1992F25C5E423AD2838C3AE0FC50CEA1E8C2709339</code></p><div class='table-wrap'><table><thead><tr><th>fold</th><th>pipeline</th><th>accuracy</th><th>precision</th><th>recall</th><th>f1</th><th>elapsed_minutes</th></tr></thead><tbody><tr><td>3</td><td>Fine-Tuned MARBERT</td><td>0.9576669802445907</td><td>0.957791586998088</td><td>0.9576749076080031</td><td>0.957664582420646</td><td>1.3844198184333334</td></tr></tbody></table></div></section><section><h3>05_finetune_cross_validation/fold_artifacts/fullft_fold_03_Paraphrase_metrics.csv</h3><p>SHA-256: <code>F737AAF5712C87DD168E77CAA581E2B4C20EEEB197F2935E89AA1C4608C9C18F</code></p><div class='table-wrap'><table><thead><tr><th>fold</th><th>pipeline</th><th>accuracy</th><th>precision</th><th>recall</th><th>f1</th><th>elapsed_minutes</th></tr></thead><tbody><tr><td>3</td><td>Fine-Tuned Paraphrase</td><td>0.9520225776105362</td><td>0.9522083560566892</td><td>0.9520322699403877</td><td>0.9520183313286762</td><td>1.0707942474166667</td></tr></tbody></table></div></section><section><h3>05_finetune_cross_validation/fold_artifacts/fullft_fold_04_CAMeLBERT_metrics.csv</h3><p>SHA-256: <code>7656B2E68BEBA4AADEEB9E5AD4FF4E212F0166AFB2268169CBD8EB4A405F18FA</code></p><div class='table-wrap'><table><thead><tr><th>fold</th><th>pipeline</th><th>accuracy</th><th>precision</th><th>recall</th><th>f1</th><th>elapsed_minutes</th></tr></thead><tbody><tr><td>4</td><td>Fine-Tuned CAMeLBERT</td><td>0.9548447789275635</td><td>0.9552456669926165</td><td>0.9548588986590771</td><td>0.954835785806342</td><td>1.4917838062</td></tr></tbody></table></div></section><section><h3>05_finetune_cross_validation/fold_artifacts/fullft_fold_04_MARBERT_metrics.csv</h3><p>SHA-256: <code>8ED9D7227DA4B58F3DDD273325AAD3BCB5CCE04DF0F7FF7C1EC3C8E5909B7BB7</code></p><div class='table-wrap'><table><thead><tr><th>fold</th><th>pipeline</th><th>accuracy</th><th>precision</th><th>recall</th><th>f1</th><th>elapsed_minutes</th></tr></thead><tbody><tr><td>4</td><td>Fine-Tuned MARBERT</td><td>0.9539040451552211</td><td>0.9543565303663808</td><td>0.9539190490350169</td><td>0.953893599524835</td><td>1.3840813209833334</td></tr></tbody></table></div></section><section><h3>05_finetune_cross_validation/fold_artifacts/fullft_fold_04_Paraphrase_metrics.csv</h3><p>SHA-256: <code>4182C5AF77C05163A153CB392D7DA82AB78A194B0A0BD965D24BE7C296F9AE6D</code></p><div class='table-wrap'><table><thead><tr><th>fold</th><th>pipeline</th><th>accuracy</th><th>precision</th><th>recall</th><th>f1</th><th>elapsed_minutes</th></tr></thead><tbody><tr><td>4</td><td>Fine-Tuned Paraphrase</td><td>0.9520225776105362</td><td>0.9522838036948884</td><td>0.9520340399020149</td><td>0.9520164627265284</td><td>1.1074009348</td></tr></tbody></table></div></section><section><h3>05_finetune_cross_validation/fold_artifacts/fullft_fold_05_CAMeLBERT_metrics.csv</h3><p>SHA-256: <code>CF49A6D7FECC4A68D87B95EC279E74AB564F89E10D1A31F4BD1E6806F183D52D</code></p><div class='table-wrap'><table><thead><tr><th>fold</th><th>pipeline</th><th>accuracy</th><th>precision</th><th>recall</th><th>f1</th><th>elapsed_minutes</th></tr></thead><tbody><tr><td>5</td><td>Fine-Tuned CAMeLBERT</td><td>0.9482596425211665</td><td>0.9485187861271676</td><td>0.9482711014825198</td><td>0.948253048038413</td><td>1.4819807066000001</td></tr></tbody></table></div></section><section><h3>05_finetune_cross_validation/fold_artifacts/fullft_fold_05_MARBERT_metrics.csv</h3><p>SHA-256: <code>198B469A453E013550252D50B28BB30248BFD2239304C9E0B7D8B8E6DCD4A9D2</code></p><div class='table-wrap'><table><thead><tr><th>fold</th><th>pipeline</th><th>accuracy</th><th>precision</th><th>recall</th><th>f1</th><th>elapsed_minutes</th></tr></thead><tbody><tr><td>5</td><td>Fine-Tuned MARBERT</td><td>0.9473189087488241</td><td>0.9476196379866104</td><td>0.9473312518584598</td><td>0.9473110285006197</td><td>1.3774725991166663</td></tr></tbody></table></div></section><section><h3>05_finetune_cross_validation/fold_artifacts/fullft_fold_05_Paraphrase_metrics.csv</h3><p>SHA-256: <code>2621DC126B4422698B88AA4407009C49254722357CA98B7E807EBA7546D83E9B</code></p><div class='table-wrap'><table><thead><tr><th>fold</th><th>pipeline</th><th>accuracy</th><th>precision</th><th>recall</th><th>f1</th><th>elapsed_minutes</th></tr></thead><tbody><tr><td>5</td><td>Fine-Tuned Paraphrase</td><td>0.9397930385700847</td><td>0.9398872664957725</td><td>0.9398000651345879</td><td>0.9397904276408949</td><td>1.1332741537333333</td></tr></tbody></table></div></section>
+</body></html>

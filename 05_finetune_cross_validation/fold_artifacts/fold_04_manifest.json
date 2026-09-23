@@ -1,0 +1,17 @@
+{
+  "status": "complete",
+  "fold": 4,
+  "seed": 20260823,
+  "rerun_paraphrase_only": true,
+  "splitter": "StratifiedKFold",
+  "n_splits": 10,
+  "full_finetune": {
+    "loss": "BatchAllTripletLoss",
+    "epochs": 10,
+    "batch_size": 128,
+    "learning_rate": 2e-05,
+    "warmup_ratio": 0.1,
+    "max_length": 192,
+    "fold_seed": 20260827
+  }
+}

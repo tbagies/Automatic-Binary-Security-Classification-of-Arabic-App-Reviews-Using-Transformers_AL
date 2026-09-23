@@ -1,0 +1,9 @@
+{
+  "training_csv": "04_active_learning/iteration_10/input/training_set.csv",
+  "heldout_csv": "08_heldout_evaluation/data/heldout_1000.csv",
+  "full_model_root": "06_full_dataset_finetuning/models",
+  "generated_cross_validation_predictions": "07_cross_validation_results/predictions/cross_validation_predictions_labels.csv",
+  "generated_heldout_predictions": "08_heldout_evaluation/predictions/heldout_predictions_labels.csv",
+  "publication_prediction_tables_included": false,
+  "random_seed": 20260823
+}

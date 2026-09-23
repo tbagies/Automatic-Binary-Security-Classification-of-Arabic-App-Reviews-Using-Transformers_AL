@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="source-sha256" content="F20956996D7AC155B8F93C38AB955A60C6123A76966A7359EF1A5063B867FD39"><meta name="captured-output-manifest" content="[{&quot;bytes&quot;: 119497, &quot;path&quot;: &quot;02_initial_expert_annotation/data/initial_balanced_300.csv&quot;, &quot;sha256&quot;: &quot;D2324A91B66C498CD517FB6E33E374F092BC9843A219FE0FE9CEC0318D7B61F7&quot;}]">
+<title>02_initial_expert_annotation/code/python/verify_initial_annotation.py</title>
+<style>body{font:15px/1.55 system-ui,sans-serif;max-width:1200px;margin:2rem auto;padding:0 1.2rem;color:#172033}h1,h2,h3{color:#103c5a}pre{direction:ltr;text-align:left;background:#0d1726;color:#e8eef7;padding:1rem;border-radius:8px;overflow:auto;white-space:pre}code{font-family:ui-monospace,Consolas,monospace}table{border-collapse:collapse;font-size:12px}th,td{padding:.35rem .5rem;border:1px solid #ccd5df;text-align:left;max-width:360px;overflow-wrap:anywhere}th{background:#e9f1f7}.table-wrap{overflow:auto}img{max-width:100%;height:auto;border:1px solid #ccd5df}</style></head>
+<body><h1>verify_initial_annotation.py</h1><p>Canonical Python source: <code>02_initial_expert_annotation/code/python/verify_initial_annotation.py</code><br>SHA-256: <code>F20956996D7AC155B8F93C38AB955A60C6123A76966A7359EF1A5063B867FD39</code></p>
+<h2>Python code</h2><pre><code>&quot;&quot;&quot;Verify the expert workbook and its balanced 300-row seed dataset.&quot;&quot;&quot;
+
+from __future__ import annotations
+
+import argparse
+import re
+import unicodedata
+from pathlib import Path
+
+import pandas as pd
+
+
+def normalize(value: object) -&gt; str:
+    text = unicodedata.normalize(&quot;NFKC&quot;, str(value or &quot;&quot;))
+    text = re.sub(r&quot;[\u0610-\u061a\u064b-\u065f\u0670\u06d6-\u06ed]&quot;, &quot;&quot;, text)
+    return re.sub(r&quot;\s+&quot;, &quot; &quot;, text).strip()
+
+
+def verify(workbook: Path, balanced_csv: Path) -&gt; dict[str, int]:
+    security = pd.read_excel(workbook, sheet_name=&quot;Security&quot;, header=1)
+    nonsecurity = pd.read_excel(workbook, sheet_name=&quot;Non-security&quot;, header=1)
+    if len(security) != 166 or len(nonsecurity) != 154:
+        raise AssertionError(&quot;expert workbook must contain 166 security and 154 non-security rows&quot;)
+    balanced = pd.read_csv(balanced_csv)
+    if len(balanced) != 300:
+        raise AssertionError(&quot;balanced seed must contain 300 rows&quot;)
+    if set(balanced[&quot;Keyword&quot;].value_counts().tolist()) != {150}:
+        raise AssertionError(&quot;balanced seed must contain 150 rows per class&quot;)
+    if balanced[[&quot;app_name&quot;, &quot;store&quot;]].isna().any().any():
+        raise AssertionError(&quot;application/store provenance is incomplete&quot;)
+    return {&quot;expert_security&quot;: 166, &quot;expert_nonsecurity&quot;: 154, &quot;balanced_seed&quot;: 300}
+
+
+def main() -&gt; None:
+    parser = argparse.ArgumentParser()
+    parser.add_argument(&quot;workbook&quot;, type=Path)
+    parser.add_argument(&quot;balanced_csv&quot;, type=Path)
+    args = parser.parse_args()
+    print(verify(args.workbook, args.balanced_csv))
+
+
+if __name__ == &quot;__main__&quot;:
+    main()
+
+</code></pre>
+<h2>Verified captured outputs (not re-executed)</h2><section><h3>02_initial_expert_annotation/data/initial_balanced_300.csv</h3><p>SHA-256: <code>D2324A91B66C498CD517FB6E33E374F092BC9843A219FE0FE9CEC0318D7B61F7</code></p><div class='table-wrap'><table><thead><tr><th>training_row_id</th><th>review_id</th><th>content</th><th>Keyword</th><th>store</th><th>app_name</th><th>label_source</th><th>iteration_added</th><th>source_row_number</th><th>source_file</th></tr></thead><tbody><tr><td>I2-BASE-0001</td><td>8c5b15f73fd035a5e550</td><td>يجنن في متناول الجميع</td><td>non-security</td><td>app_store</td><td>aliExpress</td><td>initial_balanced_150_150</td><td>0</td><td>2</td><td>agreement_negative_aliExpress_AS.csv</td></tr><tr><td>I2-BASE-0002</td><td>719b2d697c218346669f</td><td>بالبرنامج عيزو بالغه العربيه</td><td>non-security</td><td>google_play</td><td>AIChatBot-Nova</td><td>initial_balanced_150_150</td><td>0</td><td>3</td><td>agreement_negative_AIChatBot-Nova_GP.csv</td></tr><tr><td>I2-BASE-0003</td><td>776e858b6aed4e6eb2e6</td><td>هو ليه مبلغ مالى وكمان اسبوعى حرام طبعا وكمان كله انجلش</td><td>non-security</td><td>google_play</td><td>AIChatBot-Nova</td><td>initial_balanced_150_150</td><td>0</td><td>4</td><td>agreement_negative_AIChatBot-Nova_GP.csv</td></tr><tr><td>I2-BASE-0004</td><td>066409f8c689bce3c00f</td><td>البرنامج روعه بس مايحفظ الخصوصيه يعني يسمح بتجسس عليك حسبي ع من تجسس اللهم اشغله بنفسه اللهم اجعل كيده في نحره اخواني الي ترقمون هداكم الله الله يصلح شانكم الله يستر عليكم ويستر عرض حريمكم الله يجعل للهدايه لكم سبيل الله يحفظكم ويصلحكم ويجعلكم دعاه في سبيله الله ينور وجيهكم اذا اضلمت وجيه الله لايكشف ستركم ويبعدكم عن الحرام امين اخنكم في الله</td><td>security</td><td>google_play</td><td>whatsApp</td><td>initial_balanced_150_150</td><td>0</td><td>5</td><td>agreement_neutral_whatsApp_GP.csv</td></tr><tr><td>I2-BASE-0005</td><td>c8956235006c33af532c</td><td>تطبيق فاااشل جدا جدا جدا شات جي بيتي احسن منه يعني او سألته عن موعد إشي هو يقولك روح دور عليه وانت شو شغلك ؟؟؟؟؟ بإختصار تطبيق فاشل</td><td>non-security</td><td>google_play</td><td>AIChatBot-Nova</td><td>initial_balanced_150_150</td><td>0</td><td>6</td><td>agreement_negative_AIChatBot-Nova_GP.csv</td></tr><tr><td>I2-BASE-0006</td><td>b98c9b0e40a299aa0a93</td><td>البرنامج كلش واهله كل زينين بس في شغله وحده مو حلوه اللي هي انه البرنامج يحتاج له انه واحد يتكلم عربي ولا يتكلم معاك عربي خمس دقائق عشر دقائق وخلاص وانا عربيه يعني كيف اتكلم انجليزي ما اقدر لانه ما اعرف؟</td><td>non-security</td><td>google_play</td><td>AIChatBot-Nova</td><td>initial_balanced_150_150</td><td>0</td><td>7</td><td>agreement_negative_AIChatBot-Nova_GP.csv</td></tr><tr><td>I2-BASE-0007</td><td>692541ce79a7b70ab6d2</td><td>عربية</td><td>non-security</td><td>google_play</td><td>tiktok</td><td>initial_balanced_150_150</td><td>0</td><td>8</td><td>agreement_neutral_tiktok_GP.csv</td></tr><tr><td>I2-BASE-0008</td><td>aa0d455e8cea49347f54</td><td>ليش اصبح وتس اب فاشل وتقولون لنا ان برامج وتس الاخرئ يقومون بي التجسس عليكم وقمتم بحضرنئ تفضلو يا مهندسين برنامح وتس الخاص بي الشركة فاشل لا استطيع اضافة حالة ويقول مساحة القرص غير كافية رغم توفر مساحة هائلة في الهاتف علا الاقل البرامج الاخرئ توفر لنا ممزيات افضل ويمكن اضافة حالة حتئلو حجمها كبير اين التطور في الوتس الخاص بكم بل زاد في التراجع الف عام للخلف</td><td>security</td><td>google_play</td><td>whatsApp</td><td>initial_balanced_150_150</td><td>0</td><td>9</td><td>agreement_negative_whatsApp_GP.csv</td></tr><tr><td>I2-BASE-0009</td><td>4718c3f82d2fd0d95e37</td><td>تطبيق مسيس ويقوم بحضر اي شخص ينشر باتجاه لايتفق مع مالاينسجم مع اهدافهانصحالمشتركين بالتخلي عنه فهو حساب ينتهك معايير الحريه ويقيدهاوشعاراته كاذبه فقط للترويج للجهات التىي انشئته انه تطبيق صنعلاجل دعم مشاريع هذهالجهه وافكارهوعندما يحضرك لايكون حضر وانما ايقاف التطبيقبالكامل واي حساب اخر لنفس الهاتفممايعني انه حساب تجسسي بأمتياز يعمل على الولولج الى معلومات الجهاز الاصلي وربط كل الحسابات الموجوده في جهازك والتعرف عليها ومن ثم التعرف عليكوهو انتهاك واضح للخصوصيه والدليل انه يمنع</td><td>security</td><td>google_play</td><td>tiktok</td><td>initial_balanced_150_150</td><td>0</td><td>10</td><td>agreement_negative_tiktok_GP.csv</td></tr><tr><td>I2-BASE-0010</td><td>e73562ff9b48e8dca3cd</td><td>التحديث الاخير لا يتحمل في الهاتف</td><td>non-security</td><td>google_play</td><td>binance</td><td>initial_balanced_150_150</td><td>0</td><td>11</td><td>agreement_negative_binance_GP.csv</td></tr></tbody></table></div></section>
+</body></html>

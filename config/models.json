@@ -1,0 +1,38 @@
+{
+  "seed": 20260823,
+  "folds": 10,
+  "active_learning_fine_tuning": {
+    "epochs": 3,
+    "learning_rate": 0.00002,
+    "warmup_ratio": 0.1,
+    "batch_size": 16,
+    "loss": "BatchHardTripletLoss"
+  },
+  "final_fine_tuning": {
+    "seed": 42,
+    "epochs": 10,
+    "learning_rate": 0.00002,
+    "warmup_ratio": 0.1,
+    "batch_size": 128,
+    "loss": "BatchAllTripletLoss",
+    "scheduler": "linear",
+    "evaluation": "cosine 1-nearest-neighbor"
+  },
+  "lora": {
+    "rank": 16,
+    "alpha": 32,
+    "dropout": 0.1,
+    "bias": "none",
+    "target_modules": [
+      "query",
+      "key",
+      "value",
+      "dense"
+    ]
+  },
+  "transformers": {
+    "camelbert": "CAMeL-Lab/bert-base-arabic-camelbert-mix",
+    "marbertv2": "UBC-NLP/MARBERTv2",
+    "paraphrase": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
+  }
+}

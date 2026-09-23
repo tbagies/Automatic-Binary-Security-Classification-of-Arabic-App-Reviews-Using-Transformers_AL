@@ -1,0 +1,100 @@
+{
+  "created_utc": "2026-08-27T23:45:07.037213+00:00",
+  "execution": "Modal GPU",
+  "gpu": "NVIDIA A10",
+  "training_csv": "/data/inputs/app_distribution_validation/final_label_data.csv",
+  "heldout_csv": "/data/inputs/app_distribution_validation/heldout.csv",
+  "camelbert_model": "/data/inputs/app_distribution_validation/Saved_Model/CAMeLBERT_Full_Model",
+  "qwen_model": "Qwen/Qwen3-8B",
+  "classification": "semantic 1-NN cosine similarity",
+  "true_label_used_for_inference": false,
+  "embedding_dimension": 768,
+  "examples_per_group": 3,
+  "selection": "one high-support example per explicit semantic theme",
+  "semantic_themes": [
+    {
+      "example_id": "security_training_01",
+      "predicted_label": "security",
+      "source_kind": "training",
+      "semantic_theme": "Privacy",
+      "semantic_theme_ar": "الخصوصية"
+    },
+    {
+      "example_id": "security_training_02",
+      "predicted_label": "security",
+      "source_kind": "training",
+      "semantic_theme": "Authentication",
+      "semantic_theme_ar": "المصادقة وتسجيل الدخول"
+    },
+    {
+      "example_id": "security_training_03",
+      "predicted_label": "security",
+      "source_kind": "training",
+      "semantic_theme": "Fraud",
+      "semantic_theme_ar": "الاحتيال"
+    },
+    {
+      "example_id": "security_heldout_01",
+      "predicted_label": "security",
+      "source_kind": "heldout",
+      "semantic_theme": "Payment verification",
+      "semantic_theme_ar": "التحقق من الدفع والبطاقات"
+    },
+    {
+      "example_id": "security_heldout_02",
+      "predicted_label": "security",
+      "source_kind": "heldout",
+      "semantic_theme": "Unauthorized charges",
+      "semantic_theme_ar": "السحب غير المصرح به"
+    },
+    {
+      "example_id": "security_heldout_03",
+      "predicted_label": "security",
+      "source_kind": "heldout",
+      "semantic_theme": "Data protection",
+      "semantic_theme_ar": "حماية البيانات والتشفير"
+    },
+    {
+      "example_id": "non-security_training_01",
+      "predicted_label": "non-security",
+      "source_kind": "training",
+      "semantic_theme": "Usability",
+      "semantic_theme_ar": "سهولة الاستخدام"
+    },
+    {
+      "example_id": "non-security_training_02",
+      "predicted_label": "non-security",
+      "source_kind": "training",
+      "semantic_theme": "Performance",
+      "semantic_theme_ar": "الأداء والسرعة"
+    },
+    {
+      "example_id": "non-security_training_03",
+      "predicted_label": "non-security",
+      "source_kind": "training",
+      "semantic_theme": "Updates",
+      "semantic_theme_ar": "التحديثات"
+    },
+    {
+      "example_id": "non-security_heldout_01",
+      "predicted_label": "non-security",
+      "source_kind": "heldout",
+      "semantic_theme": "Advertising",
+      "semantic_theme_ar": "الإعلانات"
+    },
+    {
+      "example_id": "non-security_heldout_02",
+      "predicted_label": "non-security",
+      "source_kind": "heldout",
+      "semantic_theme": "Language support",
+      "semantic_theme_ar": "دعم اللغة العربية"
+    },
+    {
+      "example_id": "non-security_heldout_03",
+      "predicted_label": "non-security",
+      "source_kind": "heldout",
+      "semantic_theme": "Customer support",
+      "semantic_theme_ar": "دعم العملاء"
+    }
+  ]
+}
